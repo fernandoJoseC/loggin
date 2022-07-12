@@ -32,7 +32,7 @@ class AuthActivity : AppCompatActivity() {
     private fun accionesMenuBajo() {
         views.navigation.setOnItemSelectedListener { itemBajo ->
             when (itemBajo.itemId) {
-                R.id.opciones -> {
+                R.id.code -> {
                     val intent = Intent(this@AuthActivity, Options::class.java)
                     startActivity(intent)
                     finish()

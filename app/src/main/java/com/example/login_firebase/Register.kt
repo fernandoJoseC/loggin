@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import com.example.login_firebase.databinding.ActivityCodeOptionsBinding
 import com.example.login_firebase.databinding.ActivityRegisterBinding
+import com.example.login_firebase.databinding.ActivitySocialOptionsBinding
 import com.google.firebase.auth.FirebaseAuth
 
 class Register : AppCompatActivity() {
@@ -25,14 +27,14 @@ class Register : AppCompatActivity() {
     private fun accionesMenuBajo() {
         views.navigation.setOnItemSelectedListener { itemBajo ->
             when (itemBajo.itemId) {
-                R.id.home -> {
-                    val intent = Intent(this@Register, AuthActivity::class.java)
+                R.id.code -> {
+                    val intent = Intent(this@Register, ActivityCodeOptionsBinding::class.java)
                     startActivity(intent)
                     finish()
                     true
                 }
-                R.id.opciones -> {
-                    val intent = Intent(this@Register, Options::class.java)
+                R.id.social -> {
+                    val intent = Intent(this@Register, ActivitySocialOptionsBinding::class.java)
                     startActivity(intent)
                     finish()
                     true
