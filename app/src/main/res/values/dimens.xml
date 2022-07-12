@@ -4,6 +4,8 @@
     <!-- IMG -->
 
     <dimen name="margin_top_logo">200dp</dimen>
+    <dimen name="margin_top_logo2">40dp</dimen>
+
 
 
     <!-- INPUTS -->
