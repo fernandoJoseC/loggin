@@ -10,6 +10,7 @@
     <string name="social_media">Social Media</string>
     <string name="welcome_msg">Welcome</string>
     <string name="already_msg">Already exist ?</string>
+    <string name="options">Sign-In Options</string>
 
 
     <!-- FLIEDS -->
@@ -17,6 +18,7 @@
     <string name="email">E-mail</string>
     <string name="password">Password</string>
     <string name="confirm_password">Confirm Password</string>
+    <string name="text_options">Red Social / Correo</string>
 
 
     <!-- BTNS -->
@@ -24,16 +26,12 @@
     <string name="logout_btn">Logout</string>
     <string name="register_btn">Register</string>
     <string name="google">Google</string>
-    <string name="fer">fer</string>
 
 
     <string name="prefs_file">preferencias</string>
     <string name="default_web_id_token">165602814967-smk14bfoodpjt9ifo94kie1lgupd0qcm.apps.googleusercontent.com</string>
-
-    <!--strings for menu bajo-->
-    <string name="code">Code</string>
-    <string name="social">Social</string>
-    <string name="mail">Mail</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>
