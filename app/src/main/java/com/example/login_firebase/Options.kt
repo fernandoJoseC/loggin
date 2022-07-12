@@ -31,7 +31,7 @@ class Options : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(views.root)
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestIdToken(getString(R.string.default_web_id_token))
             .requestEmail()
             .build()
 
