@@ -3,12 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/home"
-        android:icon="@drawable/home"
-        android:title="Inicio" />
+        android:id="@+id/code"
+        android:icon="@drawable/code_icon"
+        android:title="@string/code" />
     <item
-        android:id="@+id/opciones"
-        android:icon="@drawable/ic_baseline_settings_24"
-        android:title="Opciones" />
+        android:id="@+id/social"
+        android:icon="@drawable/social_icon"
+        android:title="@string/social" />
+
+    <item
+        android:id="@+id/mail"
+        android:icon="@drawable/mail_icon"
+        android:title="@string/mail" />
 
 </menu>
