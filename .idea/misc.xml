@@ -13,6 +13,9 @@
         <entry key="app/src/main/res/layout/activity_mail_options.xml" value="0.13229166666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.13229166666666667" />
         <entry key="app/src/main/res/layout/activity_options.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_register.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/activity_social_options.xml" value="0.13229166666666667" />
+        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_sigin_options.xml" value="0.28229166666666666" />
       </map>
     </option>

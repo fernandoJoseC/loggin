@@ -8,7 +8,7 @@ import com.example.login_firebase.databinding.FragmentSiginOptionsBinding
 import com.example.login_firebase.dto.Mail
 import com.squareup.picasso.Picasso
 
-class Adapter(val list: List<Mail>) : RecyclerView.Adapter<Adapter.MailHolder>() {
+class AdapterMail(val list: List<Mail>) : RecyclerView.Adapter<AdapterMail.MailHolder>() {
     inner class MailHolder(fragmentoView: View) : RecyclerView.ViewHolder(fragmentoView) {
         var viewsFragmentHolder: FragmentSiginOptionsBinding
 
@@ -33,3 +33,4 @@ class Adapter(val list: List<Mail>) : RecyclerView.Adapter<Adapter.MailHolder>()
         return list.size
     }
 }
+
