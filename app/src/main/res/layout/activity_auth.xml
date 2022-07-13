@@ -137,12 +137,6 @@
 
     </ScrollView>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/menu_bajo"
-        tools:ignore="InvalidId" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

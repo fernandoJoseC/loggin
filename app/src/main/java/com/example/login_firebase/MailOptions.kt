@@ -25,6 +25,8 @@ class MailOptions : AppCompatActivity() {
         initialConfiguration()
         addListProducts()
         accionesMenuBajo()
+        initialConfiguration()
+        addListProducts()
     }
 
     private fun accionesMenuBajo() {

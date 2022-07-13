@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import android.widget.Toast.*
+import com.example.login_firebase.databinding.FragmentSiginOptionsBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -20,13 +23,18 @@ class SiginOptions : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-
+    private lateinit var views: FragmentSiginOptionsBinding
     override fun onCreate(savedInstanceState: Bundle?) {
+        views = FragmentSiginOptionsBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+        views.buttonFragment.setOnClickListener {
+
+        }
+
     }
 
     override fun onCreateView(
