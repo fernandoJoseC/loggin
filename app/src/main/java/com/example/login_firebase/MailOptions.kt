@@ -14,7 +14,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class mail_options : AppCompatActivity() {
+class MailOptions : AppCompatActivity() {
 
     private lateinit var views: ActivityMailOptionsBinding
 
@@ -22,6 +22,8 @@ class mail_options : AppCompatActivity() {
         views = ActivityMailOptionsBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(views.root)
+        initialConfiguration()
+        addListProducts()
         accionesMenuBajo()
     }
 
@@ -29,19 +31,19 @@ class mail_options : AppCompatActivity() {
         views.navigation.setOnItemSelectedListener { itemBajo ->
             when(itemBajo.itemId){
                 R.id.code -> {
-                    val intent = Intent(this@mail_options, ActivityCodeOptionsBinding::class.java)
+                    val intent = Intent(this@MailOptions, ActivityCodeOptionsBinding::class.java)
                     startActivity(intent)
                     finish()
                     true
                 }
                 R.id.social -> {
-                    val intent = Intent(this@mail_options, ActivitySocialOptionsBinding::class.java)
+                    val intent = Intent(this@MailOptions, ActivitySocialOptionsBinding::class.java)
                     startActivity(intent)
                     finish()
                     true
                 }
                 R.id.mail -> {
-                    val intent = Intent(this@mail_options, ActivityMailOptionsBinding::class.java)
+                    val intent = Intent(this@MailOptions, ActivityMailOptionsBinding::class.java)
                     startActivity(intent)
                     finish()
                     true
@@ -61,10 +63,10 @@ class mail_options : AppCompatActivity() {
             override fun onResponse(call: Call<List<Mail>>, response: Response<List<Mail>>) {
                 if (response.isSuccessful) {
                     val list = response.body()!!
-                    views.listadoOpciones.adapter = Adapter(list)
+                    views.listadoOpciones.adapter = AdapterMail(list)
                 } else {
                     Toast.makeText(
-                        this@mail_options,
+                        this@MailOptions,
                         android.R.string.httpErrorBadUrl,
                         Toast.LENGTH_SHORT
                     ).show()
@@ -73,7 +75,7 @@ class mail_options : AppCompatActivity() {
 
             override fun onFailure(call: Call<List<Mail>>, t: Throwable) {
                 Toast.makeText(
-                    this@mail_options,
+                    this@MailOptions,
                     android.R.string.httpErrorBadUrl,
                     Toast.LENGTH_SHORT
                 ).show()

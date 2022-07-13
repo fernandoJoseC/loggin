@@ -26,13 +26,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".mail_options"
+            android:name=".MailOptions"
             android:exported="false" />
         <activity
-            android:name=".social_options"
+            android:name=".SocialOptions"
             android:exported="false" />
         <activity
-            android:name=".code_options"
+            android:name=".CodeOptions"
             android:exported="false" />
         <activity
             android:name=".Options"
