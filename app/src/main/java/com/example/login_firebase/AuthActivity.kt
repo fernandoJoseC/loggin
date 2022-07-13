@@ -10,7 +10,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
-import com.example.login_firebase.databinding.ActivityAuthBinding
+import com.example.login_firebase.databinding.*
 
 
 import com.google.firebase.auth.FirebaseAuth
@@ -25,24 +25,10 @@ class AuthActivity : AppCompatActivity() {
         setContentView(views.root)
         setup()
         session()
-        accionesMenuBajo()
+
 
     }
 
-    private fun accionesMenuBajo() {
-        views.navigation.setOnItemSelectedListener { itemBajo ->
-            when (itemBajo.itemId) {
-                R.id.code -> {
-                    val intent = Intent(this@AuthActivity, Options::class.java)
-                    startActivity(intent)
-                    finish()
-                    true
-                }
-                else -> false
-
-            }
-        }
-    }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater: MenuInflater = menuInflater

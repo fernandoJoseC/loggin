@@ -23,6 +23,8 @@ class mail_options : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(views.root)
         accionesMenuBajo()
+        initialConfiguration()
+        addListProducts()
     }
 
     private fun accionesMenuBajo() {

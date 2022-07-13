@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat
 import com.example.login_firebase.databinding.ActivityCodeOptionsBinding
+import com.example.login_firebase.databinding.ActivityMailOptionsBinding
 import com.example.login_firebase.databinding.ActivityOptionsBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -72,8 +73,8 @@ class Options : AppCompatActivity() {
     private fun accionesMenuBajo() {
         views.navigation.setOnItemSelectedListener { itemBajo ->
             when (itemBajo.itemId){
-                R.id.code -> {
-                    val intent = Intent(this@Options, ActivityCodeOptionsBinding::class.java)
+                R.id.mail -> {
+                    val intent = Intent(this@Options, ActivityMailOptionsBinding::class.java)
                     startActivity(intent)
                     finish()
                     true
