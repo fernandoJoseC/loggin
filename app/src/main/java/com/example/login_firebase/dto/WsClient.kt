@@ -12,9 +12,11 @@ class WsClient {
             retrofit = Retrofit.Builder().baseUrl(url)
                 .addConverterFactory(GsonConverterFactory.create()).build()
             return retrofit
-            fun apiSocial(): ApiService? {
-                return retrofitClient(URL_social)?.create(ApiService::class.java)
-            }
         }
+
+        fun apiSocial(): ApiService? {
+            return retrofitClient(URL_social)?.create(ApiService::class.java)
+        }
+
     }
 }
