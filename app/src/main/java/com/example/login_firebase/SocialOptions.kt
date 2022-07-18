@@ -31,19 +31,19 @@ class SocialOptions : AppCompatActivity() {
         views.navigation.setOnItemSelectedListener { itemBajo ->
             when(itemBajo.itemId){
                 R.id.code -> {
-                    val intent = Intent(this@SocialOptions, ActivityCodeOptionsBinding::class.java)
+                    val intent = Intent(this@SocialOptions, CodeOptions::class.java)
                     startActivity(intent)
                     finish()
                     true
                 }
                 R.id.social -> {
-                    val intent = Intent(this@SocialOptions, ActivitySocialOptionsBinding::class.java)
+                    val intent = Intent(this@SocialOptions, SocialOptions::class.java)
                     startActivity(intent)
                     finish()
                     true
                 }
                 R.id.mail -> {
-                    val intent = Intent(this@SocialOptions, ActivityMailOptionsBinding::class.java)
+                    val intent = Intent(this@SocialOptions, MailOptions::class.java)
                     startActivity(intent)
                     finish()
                     true
