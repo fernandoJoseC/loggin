@@ -4,8 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable-v24/home.xml" value="0.1425" />
+        <entry key="app/src/main/res/drawable-v24/ic_baseline_menu_24.xml" value="0.1535" />
+        <entry key="app/src/main/res/drawable-v24/ic_baseline_search_24.xml" value="0.1535" />
         <entry key="app/src/main/res/drawable-v24/ic_baseline_share_24.xml" value="0.1425" />
+        <entry key="app/src/main/res/drawable/google.xml" value="0.1535" />
+        <entry key="app/src/main/res/drawable/google_icon.xml" value="0.1535" />
+        <entry key="app/src/main/res/drawable/ic_baseline_room_preferences_24.xml" value="0.1535" />
         <entry key="app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.1425" />
+        <entry key="app/src/main/res/drawable/splash.xml" value="0.1535" />
         <entry key="app/src/main/res/layout/activity_auth.xml" value="0.13229166666666667" />
         <entry key="app/src/main/res/layout/activity_code_options.xml" value="0.13229166666666667" />
         <entry key="app/src/main/res/layout/activity_inicio.xml" value="0.13229166666666667" />
@@ -17,6 +23,9 @@
         <entry key="app/src/main/res/layout/activity_social_options.xml" value="0.13229166666666667" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_sigin_options.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/menu/menu_bajo.xml" value="0.17962962962962964" />
+        <entry key="app/src/main/res/menu/principal.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/menu/principal_auth.xml" value="0.28229166666666666" />
       </map>
     </option>
   </component>
