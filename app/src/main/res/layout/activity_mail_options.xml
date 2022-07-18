@@ -6,14 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".MailOptions">
 
-    <androidx.appcompat.widget.Toolbar
+    <!--<androidx.appcompat.widget.Toolbar
         android:id="@+id/navbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/principal"
         app:navigationIcon="@drawable/ic_baseline_menu_24"
-        app:title="@string/mail"
-        app:menu="@menu/principal"/>
+        app:title="@string/mail" />-->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/navbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="@string/mail"
+            app:menu="@menu/principal"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            />
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <ImageView
         android:id="@+id/logo_uide"
@@ -29,7 +45,7 @@
         android:layout_height="0dp"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toTopOf="@id/navigation"
-        app:layout_constraintTop_toBottomOf="@id/logo_uide"/>
+        app:layout_constraintTop_toBottomOf="@id/logo_uide" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation"

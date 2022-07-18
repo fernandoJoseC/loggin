@@ -73,8 +73,21 @@ class Options : AppCompatActivity() {
     private fun accionesMenuBajo() {
         views.navigation.setOnItemSelectedListener { itemBajo ->
             when (itemBajo.itemId){
+
+                R.id.code -> {
+                    val intent = Intent(this@Options, CodeOptions::class.java)
+                    startActivity(intent)
+                    finish()
+                    true
+                }
+                R.id.social -> {
+                    val intent = Intent(this@Options, SocialOptions::class.java)
+                    startActivity(intent)
+                    finish()
+                    true
+                }
                 R.id.mail -> {
-                    val intent = Intent(this@Options, ActivityMailOptionsBinding::class.java)
+                    val intent = Intent(this@Options, MailOptions::class.java)
                     startActivity(intent)
                     finish()
                     true
