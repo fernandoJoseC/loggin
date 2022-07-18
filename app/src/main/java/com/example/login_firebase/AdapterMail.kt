@@ -1,5 +1,6 @@
 package com.example.login_firebase
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,6 +28,10 @@ class AdapterMail(val list: List<Mail>) : RecyclerView.Adapter<AdapterMail.MailH
     override fun onBindViewHolder(holder: MailHolder, position: Int) {
         holder.viewsFragmentHolder.socialText.text = list[position].nombre
         Picasso.get().load(list[position].url).fit().centerInside().into(holder.viewsFragmentHolder.imageSocial)
+        holder.viewsFragmentHolder.buttonFragment.setOnClickListener {
+            val intent = Intent(holder.viewsFragmentHolder.root.context, Options::class.java)
+            holder.viewsFragmentHolder.root.context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {
