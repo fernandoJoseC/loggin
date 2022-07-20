@@ -3,6 +3,10 @@ package com.example.login_firebase
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.login_firebase.databinding.ActivityCodeOptionsBinding
@@ -26,6 +30,31 @@ class SocialOptions : AppCompatActivity() {
         addListProducts()
         accionesMenuBajo()
     }
+
+    /*override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.principal, menu)
+        val menuItem = menu?.findItem(R.id.buscar)
+        hacerBuscar(menuItem)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    private fun hacerBuscar(menuItem: MenuItem?) {
+        val buscarAlgo = menuItem?.actionView as SearchView
+        buscarAlgo.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                Toast.makeText(this@SocialOptions, "typing... " + query, Toast.LENGTH_LONG).show()
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                Toast.makeText(this@SocialOptions, "mandando a buscar... " + newText, Toast.LENGTH_LONG)
+                    .show()
+                return false
+            }
+        })
+
+    }*/
 
     private fun accionesMenuBajo() {
         views.navigation.setOnItemSelectedListener { itemBajo ->

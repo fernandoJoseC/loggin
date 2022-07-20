@@ -6,15 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".AuthActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/principal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/ic_baseline_menu_24"
-        app:title="@string/app_name"
-        app:menu="@menu/principal_auth"
-        tools:ignore="InvalidId" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -105,9 +96,11 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/login_btn"
                 style="@style/btn"
+                android:layout_height="40dp"
                 android:layout_marginTop="@dimen/input_padding"
                 android:contentDescription="@string/login_btn"
                 android:text="@string/login_btn"
+                android:background="@drawable/button_shape"
                 android:textAllCaps="false"
                 app:layout_constraintStart_toStartOf="@id/forgot_msg"
                 app:layout_constraintTop_toBottomOf="@+id/forgot_msg" />

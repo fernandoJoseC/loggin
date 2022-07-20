@@ -38,5 +38,9 @@
     <string name="social">Social</string>
     <string name="mail">Mail</string>
 
+    <string name="user">usuario</string>
+
+    <string name="dashboard">Dashboard</string>
+
 
 </resources>

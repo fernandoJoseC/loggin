@@ -6,14 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".SocialOptions">
 
-    <!--<androidx.appcompat.widget.Toolbar
-        android:id="@+id/navbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/ic_baseline_menu_24"
-        app:title="@string/social"
-        app:menu="@menu/principal"/>-->
+
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/navbar"
         android:layout_width="match_parent"
