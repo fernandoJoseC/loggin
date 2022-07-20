@@ -29,6 +29,7 @@ class SocialOptions : AppCompatActivity() {
         initialConfiguration()
         addListProducts()
         accionesMenuBajo()
+        accionesMenuArriba()
     }
 
     /*override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -55,6 +56,21 @@ class SocialOptions : AppCompatActivity() {
         })
 
     }*/
+    private fun accionesMenuArriba(){
+        views.topAppBar.setOnMenuItemClickListener {
+            itemArriba ->
+            when(itemArriba.itemId){
+                R.id.preferencias -> {
+                    val intent = Intent(this@SocialOptions, menu_preferencias::class.java)
+                    startActivity(intent)
+                    finish()
+                    true
+                }
+                else->false
+            }
+        }
+
+    }
 
     private fun accionesMenuBajo() {
         views.navigation.setOnItemSelectedListener { itemBajo ->
