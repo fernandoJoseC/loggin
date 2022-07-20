@@ -20,9 +20,6 @@
             android:name=".menu_preferencias"
             android:exported="false" />
         <activity
-            android:name=".inicio"
-            android:exported="false"></activity>
-        <activity
             android:name=".MailOptions"
             android:exported="false"></activity>
         <activity
