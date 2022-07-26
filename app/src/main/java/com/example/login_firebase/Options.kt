@@ -50,25 +50,9 @@ class Options : AppCompatActivity() {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.principal, menu)
         val menuItem = menu?.findItem(R.id.buscar)
-        hacerBuscar(menuItem)
         return super.onCreateOptionsMenu(menu)
     }
 
-    private fun hacerBuscar(menuItem: MenuItem?){
-        val buscarAlgo = menuItem?.actionView as SearchView
-        buscarAlgo.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                Toast.makeText(this@Options,"typing... " + query, Toast.LENGTH_LONG).show()
-                return false
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                Toast.makeText(this@Options, "mandando a buscar... "+newText, Toast.LENGTH_LONG).show()
-                return false
-            }
-        })
-
-    }
 
     private fun accionesMenuBajo() {
         views.navigation.setOnItemSelectedListener { itemBajo ->
@@ -99,6 +83,7 @@ class Options : AppCompatActivity() {
     }
 
     // [START onactivityresult]
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
@@ -128,7 +113,13 @@ class Options : AppCompatActivity() {
     }
 
 
+
+
+
 }
+
+
+
 
 
 
