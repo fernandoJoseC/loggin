@@ -53,8 +53,19 @@
                 app:iconGravity="textStart"
                 app:layout_constraintLeft_toLeftOf="@id/options_text"
                 app:layout_constraintRight_toRightOf="@id/options_text"
-                app:layout_constraintTop_toBottomOf="@id/options_text"
-                tools:ignore="MissingConstraints" />
+                app:layout_constraintTop_toBottomOf="@id/options_text" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fb_btn"
+                style="@style/btn"
+                android:text="Facebook"
+                android:textAllCaps="false"
+                app:icon="@drawable/facebook"
+                app:iconGravity="textStart"
+                app:layout_constraintLeft_toLeftOf="@id/google_btn"
+                app:layout_constraintRight_toRightOf="@id/google_btn"
+                app:layout_constraintTop_toBottomOf="@id/google_btn" />
+
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

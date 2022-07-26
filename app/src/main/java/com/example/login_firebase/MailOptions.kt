@@ -3,16 +3,18 @@ package com.example.login_firebase
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.login_firebase.databinding.ActivityCodeOptionsBinding
 import com.example.login_firebase.databinding.ActivityMailOptionsBinding
-import com.example.login_firebase.databinding.ActivitySocialOptionsBinding
 import com.example.login_firebase.dto.Mail
 import com.example.login_firebase.dto.WsClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import kotlin.collections.ArrayList
 
 class MailOptions : AppCompatActivity() {
 
@@ -22,14 +24,51 @@ class MailOptions : AppCompatActivity() {
         views = ActivityMailOptionsBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(views.root)
+        setSupportActionBar(views.topAppBar)
         initialConfiguration()
         addListProducts()
         accionesMenuBajo()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.principal, menu)
+        enableFinder(menu.findItem(R.id.buscar))
+        return true
+    }
+
+    private fun enableFinder(item: MenuItem) {
+        val finder = item.actionView as SearchView
+        finder.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                searching(query.toString().trim())
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                searching(newText.toString().trim())
+                return false
+            }
+        })
+    }
+
+    private fun searching(text: String){
+        text?.let { realText ->
+            if (realText.length >=3) {
+
+            }
+
+        }
+    }
+
+    private fun fillFragments(list: List<Mail>){
+        views.listadoOpciones.layoutManager = LinearLayoutManager(this)
+        views.listadoOpciones.adapter = AdapterMail(list)
+    }
+
+
     private fun accionesMenuBajo() {
         views.navigation.setOnItemSelectedListener { itemBajo ->
-            when(itemBajo.itemId){
+            when (itemBajo.itemId) {
                 R.id.code -> {
                     val intent = Intent(this@MailOptions, CodeOptions::class.java)
                     startActivity(intent)
@@ -48,7 +87,7 @@ class MailOptions : AppCompatActivity() {
                     finish()
                     true
                 }
-                else->false
+                else -> false
             }
         }
     }
@@ -56,7 +95,6 @@ class MailOptions : AppCompatActivity() {
     private fun initialConfiguration() {
         views.listadoOpciones.layoutManager = LinearLayoutManager(this)
     }
-
 
     private fun addListProducts() {
         WsClient.apiSocial()?.findmail()?.enqueue(object : Callback<List<Mail>> {
@@ -82,4 +120,8 @@ class MailOptions : AppCompatActivity() {
             }
         })
     }
+
+
 }
+
+
