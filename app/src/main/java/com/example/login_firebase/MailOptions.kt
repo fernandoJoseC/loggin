@@ -10,11 +10,11 @@ import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.login_firebase.databinding.ActivityMailOptionsBinding
 import com.example.login_firebase.dto.Mail
+import com.example.login_firebase.dto.Send
 import com.example.login_firebase.dto.WsClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import kotlin.collections.ArrayList
 
 class MailOptions : AppCompatActivity() {
 
@@ -51,16 +51,35 @@ class MailOptions : AppCompatActivity() {
         })
     }
 
-    private fun searching(text: String){
+    private fun searching(text: String) {
         text?.let { realText ->
-            if (realText.length >=3) {
+            if (realText.length >= 3) {
+                WsClient.apiSocial()?.findMail(Send.Builder().name(realText).build())
+                    ?.enqueue(object : Callback<List<Mail>> {
+                        override fun onResponse(
+                            call: Call<List<Mail>>,
+                            response: Response<List<Mail>>
+                        ) {
+                            if (response.isSuccessful) {
+                                response.body()?.let { list -> fillFragments(list) }
+                            } else {
+                                views.listadoOpciones.adapter = null
+                            }
+                        }
 
+                        override fun onFailure(call: Call<List<Mail>>, t: Throwable) {
+                            Toast.makeText(this@MailOptions, "Error, No data found", Toast.LENGTH_SHORT).show()
+                        }
+
+                    })
+            } else {
+                views.listadoOpciones.adapter = null
             }
 
         }
     }
 
-    private fun fillFragments(list: List<Mail>){
+    private fun fillFragments(list: List<Mail>) {
         views.listadoOpciones.layoutManager = LinearLayoutManager(this)
         views.listadoOpciones.adapter = AdapterMail(list)
     }
@@ -123,5 +142,9 @@ class MailOptions : AppCompatActivity() {
 
 
 }
+
+
+
+
 
 
