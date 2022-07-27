@@ -47,5 +47,9 @@
 
 
 
+    <string name="user">usuario</string>
+
+    <string name="dashboard">Dashboard</string>
+
 
 </resources>

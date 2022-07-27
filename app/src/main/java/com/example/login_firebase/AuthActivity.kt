@@ -30,7 +30,7 @@ class AuthActivity : AppCompatActivity() {
     }
 
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    /*override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.principal_auth, menu)
         views.principal.setOnMenuItemClickListener { item ->
@@ -43,7 +43,7 @@ class AuthActivity : AppCompatActivity() {
             }
         }
         return super.onCreateOptionsMenu(menu)
-    }
+    }*/
 
 
     override fun onStart() {
