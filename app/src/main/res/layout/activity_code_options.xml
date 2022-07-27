@@ -14,7 +14,6 @@
         app:navigationIcon="@drawable/ic_baseline_menu_24"
         app:title="@string/code"
         app:menu="@menu/principal"/>-->
-
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/navbar"
         android:layout_width="match_parent"
@@ -47,6 +46,8 @@
         android:scrollbars="vertical"
         app:layout_constraintBottom_toTopOf="@id/navigation"
         app:layout_constraintTop_toBottomOf="@id/logo_uide"/>
+
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation"

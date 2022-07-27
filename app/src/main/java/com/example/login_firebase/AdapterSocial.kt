@@ -27,6 +27,9 @@ class AdapterSocial(val list: List<Social>) : RecyclerView.Adapter<AdapterSocial
     override fun onBindViewHolder(holder: SocialHolder, position: Int) {
         holder.viewsFragmentHolder.socialText.text = list[position].nombre
         Picasso.get().load(list[position].url).fit().centerInside().into(holder.viewsFragmentHolder.imageSocial)
+        holder.viewsFragmentHolder.buttonFragment.setOnClickListener {
+
+        }
     }
 
     override fun getItemCount(): Int {

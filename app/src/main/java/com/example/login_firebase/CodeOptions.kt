@@ -25,6 +25,23 @@ class CodeOptions : AppCompatActivity() {
         initialConfiguration()
         addListProducts()
         accionesMenuBajo()
+        accionesMenuArriba()
+    }
+
+    private fun accionesMenuArriba(){
+        views.topAppBar.setOnMenuItemClickListener {
+                itemArriba ->
+            when(itemArriba.itemId){
+                R.id.preferencias -> {
+                    val intent = Intent(this@CodeOptions, menu_preferencias::class.java)
+                    startActivity(intent)
+                    finish()
+                    true
+                }
+                else->false
+            }
+        }
+
     }
 
     private fun accionesMenuBajo() {

@@ -3,8 +3,10 @@ package com.example.login_firebase
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.drawerlayout.widget.DrawerLayout
 import com.bumptech.glide.Glide
 import com.example.login_firebase.databinding.ActivityMainBinding
+import com.google.android.material.internal.NavigationMenu
 import com.google.firebase.auth.FirebaseAuth
 
 enum class ProviderType {
@@ -49,6 +51,10 @@ class MainActivity : AppCompatActivity() {
             FirebaseAuth.getInstance().signOut()
             onBackPressed()
         }
+
+
+
+
 
 
     }
