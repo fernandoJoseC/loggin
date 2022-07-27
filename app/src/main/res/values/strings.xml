@@ -21,22 +21,31 @@
     <string name="text_options">Red Social / Correo</string>
 
 
+    <!-- FOOTER MENU-->
+    <string name="code">Code</string>
+    <string name="social">Social</string>
+    <string name="mail">Mail</string>
+
     <!-- BTNS -->
     <string name="login_btn">Login</string>
     <string name="logout_btn">Logout</string>
     <string name="register_btn">Register</string>
     <string name="google">Google</string>
 
+    <!-- FB -->
+    <string name="facebook_app_id">2285932508223087</string>
+    <string name="fb_login_protocol_scheme">fb2285932508223087</string>
+    <string name="facebook_client_token">3f2da8faf02af691beb9c30812322594</string>
 
+    <!-- GOOGLE -->
     <string name="prefs_file">preferencias</string>
     <string name="default_web_id_token">165602814967-smk14bfoodpjt9ifo94kie1lgupd0qcm.apps.googleusercontent.com</string>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <!--strings fot menu bajo-->
-    <string name="code">Code</string>
-    <string name="social">Social</string>
-    <string name="mail">Mail</string>
+
 
     <string name="user">usuario</string>
 
