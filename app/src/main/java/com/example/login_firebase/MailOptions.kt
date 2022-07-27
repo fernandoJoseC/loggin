@@ -76,10 +76,14 @@ class MailOptions : AppCompatActivity() {
 
 
     private fun addListProducts() {
+
+
+
         WsClient.apiSocial()?.findmail()?.enqueue(object : Callback<List<Mail>> {
             override fun onResponse(call: Call<List<Mail>>, response: Response<List<Mail>>) {
                 if (response.isSuccessful) {
                     val list = response.body()!!
+//                    list.filte
                     views.listadoOpciones.adapter = AdapterMail(list)
                 } else {
                     Toast.makeText(

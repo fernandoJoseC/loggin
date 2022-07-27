@@ -8,6 +8,8 @@ import com.bumptech.glide.Glide
 import com.example.login_firebase.databinding.ActivityMainBinding
 import com.google.android.material.internal.NavigationMenu
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 enum class ProviderType {
     BASIC,
@@ -36,6 +38,7 @@ class MainActivity : AppCompatActivity() {
         nEmail.text = email
 
         Glide.with(this).load(url).centerCrop().into(mProfileImage);
+        //aqui va picasso
 
         //guardado de datos
         val prefs =
@@ -48,12 +51,9 @@ class MainActivity : AppCompatActivity() {
             prefs.clear()
             prefs.apply()
 
-            FirebaseAuth.getInstance().signOut()
+            Firebase.auth.signOut()
             onBackPressed()
         }
-
-
-
 
 
 
