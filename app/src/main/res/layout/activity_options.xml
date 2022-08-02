@@ -14,7 +14,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
 
             <ImageView
                 android:id="@+id/uide_logo"
@@ -33,16 +34,16 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_size_msg"
                 app:layout_constraintTop_toBottomOf="@id/uide_logo"
-                app:layout_constraintStart_toEndOf="@id/uide_logo"/>
+                app:layout_constraintLeft_toLeftOf="@id/uide_logo"
+                app:layout_constraintBottom_toTopOf="@id/google_btn"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/google_btn"
                 style="@style/btn"
+                android:layout_marginTop="40dp"
                 android:text="Google"
                 android:textAllCaps="false"
                 app:icon="@drawable/google_icon"
-                android:background="@drawable/button_shape"
-                android:layout_height="40dp"
                 app:iconGravity="textStart"
                 app:layout_constraintLeft_toLeftOf="@id/options_text"
                 app:layout_constraintRight_toRightOf="@id/options_text"
