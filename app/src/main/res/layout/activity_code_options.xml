@@ -6,14 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".CodeOptions">
 
-    <!--<androidx.appcompat.widget.Toolbar
-        android:id="@+id/navbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/ic_baseline_menu_24"
-        app:title="@string/code"
-        app:menu="@menu/principal"/>-->
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/navbar"
         android:layout_width="match_parent"
@@ -21,7 +13,7 @@
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/topAppBar"
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:title="@string/code"
@@ -39,8 +31,8 @@
         app:layout_constraintTop_toBottomOf="@id/navbar"
         app:srcCompat="@drawable/logo" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listado_opciones"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmento"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:scrollbars="vertical"

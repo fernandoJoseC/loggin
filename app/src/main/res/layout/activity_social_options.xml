@@ -14,7 +14,7 @@
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/topAppBar"
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:title="@string/social"
@@ -33,7 +33,7 @@
         app:srcCompat="@drawable/logo" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listado_opciones"
+        android:id="@+id/fragmento"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:scrollbars="vertical"

@@ -26,51 +26,27 @@ class SocialOptions : AppCompatActivity() {
         views = ActivitySocialOptionsBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(views.root)
-        initialConfiguration()
-        addListProducts()
+        //initialConfiguration()
+        //addListProducts()
         accionesMenuBajo()
-        accionesMenuArriba()
+        //accionesMenuArriba()
     }
 
-    /*override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflater: MenuInflater = menuInflater
-        inflater.inflate(R.menu.principal, menu)
-        val menuItem = menu?.findItem(R.id.buscar)
-        hacerBuscar(menuItem)
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    private fun hacerBuscar(menuItem: MenuItem?) {
-        val buscarAlgo = menuItem?.actionView as SearchView
-        buscarAlgo.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                Toast.makeText(this@SocialOptions, "typing... " + query, Toast.LENGTH_LONG).show()
-                return false
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                Toast.makeText(this@SocialOptions, "mandando a buscar... " + newText, Toast.LENGTH_LONG)
-                    .show()
-                return false
-            }
-        })
-
-    }*/
-    private fun accionesMenuArriba(){
-        views.topAppBar.setOnMenuItemClickListener {
-            itemArriba ->
-            when(itemArriba.itemId){
-                R.id.preferencias -> {
-                    val intent = Intent(this@SocialOptions, menu_preferencias::class.java)
-                    startActivity(intent)
-                    finish()
-                    true
-                }
-                else->false
-            }
-        }
-
-    }
+//    private fun accionesMenuArriba(){
+//        views.topAppBar.setOnMenuItemClickListener {
+//            itemArriba ->
+//            when(itemArriba.itemId){
+//                R.id.preferencias -> {
+//                    val intent = Intent(this@SocialOptions, menu_preferencias::class.java)
+//                    startActivity(intent)
+//                    finish()
+//                    true
+//                }
+//                else->false
+//            }
+//        }
+//
+//    }
 
     private fun accionesMenuBajo() {
         views.navigation.setOnItemSelectedListener { itemBajo ->
@@ -96,37 +72,5 @@ class SocialOptions : AppCompatActivity() {
                 else->false
             }
         }
-    }
-
-    private fun initialConfiguration() {
-        views.listadoOpciones.layoutManager = LinearLayoutManager(this)
-    }
-
-
-    private fun addListProducts() {
-        WsClient.apiSocial()?.findsocial()?.enqueue(object : Callback<List<Social>> {
-            override fun onResponse(call: Call<List<Social>>, response: Response<List<Social>>) {
-                if (response.isSuccessful) {
-                    val list = response.body()!!
-                    views.listadoOpciones.adapter = AdapterSocial(list)
-                } else {
-                    Toast.makeText(
-                        this@SocialOptions,
-                        android.R.string.httpErrorBadUrl,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-            }
-
-            override fun onFailure(call: Call<List<Social>>, t: Throwable) {
-                Toast.makeText(
-                    this@SocialOptions,
-                    android.R.string.httpErrorBadUrl,
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-
-
-        })
     }
 }

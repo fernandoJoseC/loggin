@@ -24,15 +24,15 @@ class MailOptions : AppCompatActivity() {
         views = ActivityMailOptionsBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(views.root)
-        setSupportActionBar(views.topAppBar)
-        initialConfiguration()
-        addListProducts()
-        accionesMenuBajo()
+        setSupportActionBar(views.toolbar)
+//        initialConfiguration()
+//        addListProducts()
+//        accionesMenuBajo()
         accionesMenuArriba()
     }
 
     private fun accionesMenuArriba(){
-        views.topAppBar.setOnMenuItemClickListener {
+        views.toolbar.setOnMenuItemClickListener {
                 itemArriba ->
             when(itemArriba.itemId){
                 R.id.preferencias -> {
@@ -47,7 +47,7 @@ class MailOptions : AppCompatActivity() {
 
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+    /*override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.principal, menu)
         enableFinder(menu.findItem(R.id.buscar))
         return true
@@ -99,69 +99,7 @@ class MailOptions : AppCompatActivity() {
     private fun fillFragments(list: List<Mail>) {
         views.listadoOpciones.layoutManager = LinearLayoutManager(this)
         views.listadoOpciones.adapter = AdapterMail(list)
-    }
-
-
-    private fun accionesMenuBajo() {
-        views.navigation.setOnItemSelectedListener { itemBajo ->
-            when (itemBajo.itemId) {
-                R.id.code -> {
-                    val intent = Intent(this@MailOptions, CodeOptions::class.java)
-                    startActivity(intent)
-                    finish()
-                    true
-                }
-                R.id.social -> {
-                    val intent = Intent(this@MailOptions, SocialOptions::class.java)
-                    startActivity(intent)
-                    finish()
-                    true
-                }
-                R.id.mail -> {
-                    val intent = Intent(this@MailOptions, MailOptions::class.java)
-                    startActivity(intent)
-                    finish()
-                    true
-                }
-                else -> false
-            }
-        }
-    }
-
-    private fun initialConfiguration() {
-        views.listadoOpciones.layoutManager = LinearLayoutManager(this)
-    }
-
-    private fun addListProducts() {
-
-
-
-        WsClient.apiSocial()?.findmail()?.enqueue(object : Callback<List<Mail>> {
-            override fun onResponse(call: Call<List<Mail>>, response: Response<List<Mail>>) {
-                if (response.isSuccessful) {
-                    val list = response.body()!!
-//                    list.filte
-                    views.listadoOpciones.adapter = AdapterMail(list)
-                } else {
-                    Toast.makeText(
-                        this@MailOptions,
-                        android.R.string.httpErrorBadUrl,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-            }
-
-            override fun onFailure(call: Call<List<Mail>>, t: Throwable) {
-                Toast.makeText(
-                    this@MailOptions,
-                    android.R.string.httpErrorBadUrl,
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-        })
-    }
-
-
+    }*/
 }
 
 

@@ -19,7 +19,7 @@
         android:id="@+id/menu_preferencias"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="30dp"
         android:text="Menu de preferencias"
         android:textSize="30dp"
         app:layout_constraintLeft_toLeftOf="parent"
