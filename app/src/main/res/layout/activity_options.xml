@@ -14,7 +14,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
 
             <ImageView
                 android:id="@+id/uide_logo"
@@ -30,20 +31,21 @@
                 android:layout_marginTop="@dimen/margin_top_logo2"
                 android:gravity="center"
                 android:text="@string/options"
-                android:textColor="@color/black"
+                android:textColor="@color/red_uide"
                 android:textSize="@dimen/text_size_msg"
                 app:layout_constraintTop_toBottomOf="@id/uide_logo"
-                app:layout_constraintStart_toEndOf="@id/uide_logo"/>
+                app:layout_constraintLeft_toLeftOf="@id/uide_logo"
+                app:layout_constraintBottom_toTopOf="@id/google_btn"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/google_btn"
                 style="@style/btn"
+                android:layout_marginTop="40dp"
                 android:text="Google"
                 android:textAllCaps="false"
                 app:icon="@drawable/google_icon"
-                android:background="@drawable/button_shape"
-                android:layout_height="40dp"
                 app:iconGravity="textStart"
+                android:backgroundTint="@color/yellow_uide"
                 app:layout_constraintLeft_toLeftOf="@id/options_text"
                 app:layout_constraintRight_toRightOf="@id/options_text"
                 app:layout_constraintTop_toBottomOf="@id/options_text" />
@@ -55,6 +57,7 @@
                 android:textAllCaps="false"
                 app:icon="@drawable/facebook"
                 app:iconGravity="textStart"
+                android:backgroundTint="@color/yellow_uide"
                 app:layout_constraintLeft_toLeftOf="@id/google_btn"
                 app:layout_constraintRight_toRightOf="@id/google_btn"
                 app:layout_constraintTop_toBottomOf="@id/google_btn" />
@@ -64,12 +67,12 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
+    <!--<com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/menu_bajo" />
+        app:menu="@menu/menu_bajo" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

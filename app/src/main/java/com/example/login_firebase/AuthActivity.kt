@@ -30,22 +30,6 @@ class AuthActivity : AppCompatActivity() {
     }
 
 
-    /*override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflater: MenuInflater = menuInflater
-        inflater.inflate(R.menu.principal_auth, menu)
-        views.principal.setOnMenuItemClickListener { item ->
-            when (item.itemId){
-                R.id.preferencias_auth -> {
-                    Toast.makeText(this@AuthActivity, "Aqui van las preferencias", Toast.LENGTH_SHORT).show()
-                    true
-                }
-                else -> false
-            }
-        }
-        return super.onCreateOptionsMenu(menu)
-    }*/
-
-
     override fun onStart() {
         super.onStart()
         views.root.visibility = View.VISIBLE
@@ -98,7 +82,7 @@ class AuthActivity : AppCompatActivity() {
 
     private fun showOptions() {
         //val intent: Intent = Intent(this, Options::class.java)
-        val intent: Intent = Intent(this, SocialOptions::class.java)
+        val intent: Intent = Intent(this, CodeOptions::class.java)
         startActivity(intent)
     }
 

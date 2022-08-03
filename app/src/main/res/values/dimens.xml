@@ -7,7 +7,6 @@
     <dimen name="margin_top_logo2">40dp</dimen>
 
 
-
     <!-- INPUTS -->
 
     <dimen name="margin_end">24dp</dimen>
@@ -44,6 +43,7 @@
     <!-- FRAGMENT -->
     <dimen name="margin_frag">10dp</dimen>
     <dimen name="farment_height">50dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
 
 
 </resources>
