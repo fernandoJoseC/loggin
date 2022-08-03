@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.login_firebase.databinding.FragmentSiginOptionsBinding
 import com.example.login_firebase.dto.Code
+import com.example.login_firebase.dto.Social
 import com.squareup.picasso.Picasso
 
 class AdapterCode(val list: List<Code>) : RecyclerView.Adapter<AdapterCode.CodeHolder>() {

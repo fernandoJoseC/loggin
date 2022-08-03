@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.view.View
 import android.widget.Toast
 import com.example.login_firebase.databinding.ActivityCodeOptionsBinding
@@ -19,30 +20,31 @@ class Register : AppCompatActivity() {
         views = ActivityRegisterBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(views.root)
+        setSupportActionBar(views.toolbar)
         setup()
         session()
-        accionesMenuBajo()
+        accionesMenuArriba()
     }
 
-    private fun accionesMenuBajo() {
-        views.navigation.setOnItemSelectedListener { itemBajo ->
-            when (itemBajo.itemId) {
-                R.id.code -> {
-                    val intent = Intent(this@Register, ActivityCodeOptionsBinding::class.java)
-                    startActivity(intent)
-                    finish()
-                    true
-                }
-                R.id.social -> {
-                    val intent = Intent(this@Register, ActivitySocialOptionsBinding::class.java)
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.principal_register, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    private fun accionesMenuArriba(){
+        views.toolbar.setOnMenuItemClickListener {
+            itemArriba ->
+            when (itemArriba.itemId){
+                R.id.preferencias_auth -> {
+                    val intent = Intent(this@Register, menuPreferencias::class.java)
                     startActivity(intent)
                     finish()
                     true
                 }
                 else -> false
-
             }
         }
+
     }
 
     private fun session() {

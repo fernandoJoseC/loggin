@@ -54,7 +54,7 @@ class Options : AppCompatActivity() {
             signIn()
         }
         crearCanal()
-        accionesMenuBajo()
+        //accionesMenuBajo()
 
     }
 
@@ -74,22 +74,16 @@ class Options : AppCompatActivity() {
         nm.createNotificationChannel(channel)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflater: MenuInflater = menuInflater
-        inflater.inflate(R.menu.principal, menu)
-        val menuItem = menu?.findItem(R.id.buscar)
-        return super.onCreateOptionsMenu(menu)
-    }
 
-
-    private fun accionesMenuBajo() {
+    /*private fun accionesMenuBajo() {
         views.navigation.setOnItemSelectedListener { itemBajo ->
             when (itemBajo.itemId) {
 
                 R.id.code -> {
-                    val intent = Intent(this@Options, CodeOptions::class.java)
+                    *//*val intent = Intent(this@Options, CodeOptions::class.java)
                     startActivity(intent)
-                    finish()
+                    finish()*//*
+
                     true
                 }
                 R.id.social -> {
@@ -108,7 +102,7 @@ class Options : AppCompatActivity() {
                 else -> false
             }
         }
-    }
+    }*/
 
     // [START onactivityresult]
 

@@ -26,10 +26,10 @@ class SocialOptions : AppCompatActivity() {
         views = ActivitySocialOptionsBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(views.root)
-        initialConfiguration()
-        addListProducts()
+        //initialConfiguration()
+        //addListProducts()
         accionesMenuBajo()
-        accionesMenuArriba()
+        //accionesMenuArriba()
     }
 
     /*override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -73,6 +73,23 @@ class SocialOptions : AppCompatActivity() {
 
     }
 
+//    private fun accionesMenuArriba(){
+//        views.topAppBar.setOnMenuItemClickListener {
+//            itemArriba ->
+//            when(itemArriba.itemId){
+//                R.id.preferencias -> {
+//                    val intent = Intent(this@SocialOptions, menu_preferencias::class.java)
+//                    startActivity(intent)
+//                    finish()
+//                    true
+//                }
+//                else->false
+//            }
+//        }
+//
+//    }
+
+
     private fun accionesMenuBajo() {
         views.navigation.setOnItemSelectedListener { itemBajo ->
             when(itemBajo.itemId){
@@ -97,37 +114,5 @@ class SocialOptions : AppCompatActivity() {
                 else->false
             }
         }
-    }
-
-    private fun initialConfiguration() {
-        views.listadoOpciones.layoutManager = LinearLayoutManager(this)
-    }
-
-
-    private fun addListProducts() {
-        WsClient.apiSocial()?.findsocial()?.enqueue(object : Callback<List<Social>> {
-            override fun onResponse(call: Call<List<Social>>, response: Response<List<Social>>) {
-                if (response.isSuccessful) {
-                    val list = response.body()!!
-                    views.listadoOpciones.adapter = AdapterSocial(list)
-                } else {
-                    Toast.makeText(
-                        this@SocialOptions,
-                        android.R.string.httpErrorBadUrl,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-            }
-
-            override fun onFailure(call: Call<List<Social>>, t: Throwable) {
-                Toast.makeText(
-                    this@SocialOptions,
-                    android.R.string.httpErrorBadUrl,
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-
-
-        })
     }
 }

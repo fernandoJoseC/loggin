@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/topAppBar"
+            android:id="@+id/toolbar"
             style="@style/Widget.MaterialComponents.Toolbar.Primary"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
@@ -40,7 +40,7 @@
         app:srcCompat="@drawable/logo" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listado_opciones"
+        android:id="@+id/fragmento"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:scrollbars="vertical"
