@@ -39,7 +39,7 @@
     <!-- DESING FOR BTN -->
 
     <style name="btn" parent="margins">
-        <item name="android:layout_height">40dp</item>
+        <!--<item name="cornerRadius">@dimen/btn_radius_cornes</item>-->
     </style>
 
 
