@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.core.app.ActivityCompat.startActivityForResult
 import androidx.recyclerview.widget.RecyclerView
 import com.example.login_firebase.databinding.FragmentSiginOptionsBinding
-import com.example.login_firebase.dto.Code
 import com.example.login_firebase.dto.Mail
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.squareup.picasso.Picasso
