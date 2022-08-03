@@ -40,9 +40,7 @@
             android:name="com.facebook.sdk.ClientToken"
             android:value="@string/facebook_client_token" />
 
-        <activity
-            android:name=".inicio"
-            android:exported="false" />
+
         <activity
             android:name=".MailOptions"
             android:exported="false" />

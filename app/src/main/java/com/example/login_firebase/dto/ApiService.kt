@@ -22,4 +22,10 @@ interface ApiService {
     fun findMail(
         @Body datasend: Send,
     ): Call<List<Mail>>
+
+    @Headers("Content-Type: application/json")
+    @POST(value = "code/buscar")
+    fun findCode(
+        @Body datasend: Send,
+    ): Call<List<Code>>
 }
