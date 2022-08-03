@@ -31,6 +31,11 @@
     <string name="logout_btn">Logout</string>
     <string name="register_btn">Register</string>
     <string name="google">Google</string>
+    <string name="fb">Facebook</string>
+    <string name="microsoft">Microsoft</string>
+    <string name="apple">Apple</string>
+    <string name="git">GitHub</string>
+    <string name="twitter">Twitter</string>
 
     <!-- FB -->
     <string name="facebook_app_id">2285932508223087</string>

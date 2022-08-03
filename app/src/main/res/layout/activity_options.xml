@@ -40,27 +40,36 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/google_btn"
                 style="@style/btn"
-                android:layout_marginTop="40dp"
-                android:text="Google"
+                android:layout_marginTop="@dimen/margin_top_data"
+                android:text="@string/google"
                 android:textAllCaps="false"
                 app:icon="@drawable/google_icon"
                 app:iconGravity="textStart"
-                android:backgroundTint="@color/yellow_uide"
                 app:layout_constraintLeft_toLeftOf="@id/options_text"
                 app:layout_constraintRight_toRightOf="@id/options_text"
                 app:layout_constraintTop_toBottomOf="@id/options_text" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/fb_btn"
+                android:id="@+id/microsoft_btn"
                 style="@style/btn"
-                android:text="Facebook"
+                android:text="@string/microsoft"
                 android:textAllCaps="false"
-                app:icon="@drawable/facebook"
+                app:icon="@drawable/microsoft"
                 app:iconGravity="textStart"
-                android:backgroundTint="@color/yellow_uide"
                 app:layout_constraintLeft_toLeftOf="@id/google_btn"
                 app:layout_constraintRight_toRightOf="@id/google_btn"
                 app:layout_constraintTop_toBottomOf="@id/google_btn" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/apple_btn"
+                style="@style/btn"
+                android:text="@string/apple"
+                android:textAllCaps="false"
+                app:icon="@drawable/apple"
+                app:iconGravity="textStart"
+                app:layout_constraintLeft_toLeftOf="@id/microsoft_btn"
+                app:layout_constraintRight_toRightOf="@id/microsoft_btn"
+                app:layout_constraintTop_toBottomOf="@id/microsoft_btn" />
 
 
 
