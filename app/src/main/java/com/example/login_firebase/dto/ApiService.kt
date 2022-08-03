@@ -28,4 +28,10 @@ interface ApiService {
     fun findCode(
         @Body datasend: Send,
     ): Call<List<Code>>
+
+    @Headers("Content-Type: application/json")
+    @POST(value = "social/buscar")
+    fun findSocial(
+        @Body datasend: Send,
+    ): Call<List<Social>>
 }

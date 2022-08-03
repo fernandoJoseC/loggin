@@ -32,47 +32,6 @@ class SocialOptions : AppCompatActivity() {
         //accionesMenuArriba()
     }
 
-    /*override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflater: MenuInflater = menuInflater
-        inflater.inflate(R.menu.principal, menu)
-        val menuItem = menu?.findItem(R.id.buscar)
-        hacerBuscar(menuItem)
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    private fun hacerBuscar(menuItem: MenuItem?) {
-        val buscarAlgo = menuItem?.actionView as SearchView
-        buscarAlgo.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                Toast.makeText(this@SocialOptions, "typing... " + query, Toast.LENGTH_LONG).show()
-                return false
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                Toast.makeText(this@SocialOptions, "mandando a buscar... " + newText, Toast.LENGTH_LONG)
-                    .show()
-                return false
-            }
-        })
-
-    }*/
-
-    private fun accionesMenuArriba(){
-        views.topAppBar.setOnMenuItemClickListener {
-            itemArriba ->
-            when(itemArriba.itemId){
-                R.id.preferencias -> {
-                    val intent = Intent(this@SocialOptions, menu_preferencias::class.java)
-                    startActivity(intent)
-                    finish()
-                    true
-                }
-                else->false
-            }
-        }
-
-    }
-
 //    private fun accionesMenuArriba(){
 //        views.topAppBar.setOnMenuItemClickListener {
 //            itemArriba ->
@@ -88,7 +47,6 @@ class SocialOptions : AppCompatActivity() {
 //        }
 //
 //    }
-
 
     private fun accionesMenuBajo() {
         views.navigation.setOnItemSelectedListener { itemBajo ->
