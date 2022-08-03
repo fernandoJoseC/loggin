@@ -36,7 +36,7 @@ class MailOptions : AppCompatActivity() {
                 itemArriba ->
             when(itemArriba.itemId){
                 R.id.preferencias -> {
-                    val intent = Intent(this@MailOptions, menu_preferencias::class.java)
+                    val intent = Intent(this@MailOptions, menuPreferencias::class.java)
                     startActivity(intent)
                     finish()
                     true

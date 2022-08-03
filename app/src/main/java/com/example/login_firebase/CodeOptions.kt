@@ -32,24 +32,10 @@ class CodeOptions : AppCompatActivity() {
         accionesMenuArriba()
     }
 
-    /*override fun onCreateOptionsMenu(menu: Menu): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.principal, menu)
-        (menu.findItem(R.id.buscar).actionView as SearchView).setOnQueryTextListener(object :
-            SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                Toast.makeText(this@CodeOptions, "aqui deben ir los fragmentos", Toast.LENGTH_SHORT)
-                    .show()
-                return false
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                Toast.makeText(this@CodeOptions, "aqui deben ir los fragmentos", Toast.LENGTH_SHORT)
-                    .show()
-                return false
-            }
-        })
         return super.onCreateOptionsMenu(menu)
-    }*/
+    }
 
 //    private fun enableFinder(item: MenuItem) {
 //        val finder = item.actionView as androidx.appcompat.widget.SearchView
@@ -99,7 +85,7 @@ class CodeOptions : AppCompatActivity() {
         views.toolbar.setOnMenuItemClickListener { itemArriba ->
             when (itemArriba.itemId) {
                 R.id.preferencias -> {
-                    val intent = Intent(this@CodeOptions, menu_preferencias::class.java)
+                    val intent = Intent(this@CodeOptions, menuPreferencias::class.java)
                     startActivity(intent)
                     finish()
                     true
@@ -116,16 +102,19 @@ class CodeOptions : AppCompatActivity() {
                 R.id.code -> {
                     supportFragmentManager.beginTransaction()
                         .replace(views.fragmento.id, listadoRedesCode()).commit()
+                    views.toolbar.title = "Code"
                     true
                 }
                 R.id.social -> {
                     supportFragmentManager.beginTransaction()
                         .replace(views.fragmento.id, listadoRedesSocial()).commit()
+                    views.toolbar.title = "Social"
                     true
                 }
                 R.id.mail -> {
                     supportFragmentManager.beginTransaction()
                         .replace(views.fragmento.id, listadoRedesMail()).commit()
+                    views.toolbar.title = "Mail"
                     true
                 }
                 else -> false

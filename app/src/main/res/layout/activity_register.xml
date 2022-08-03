@@ -6,14 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".Register">
 
-    <!--<androidx.appcompat.widget.Toolbar
-        android:id="@+id/principal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/ic_baseline_menu_24"
-        app:title="@string/app_name"
-        app:menu="@menu/principal"/>-->
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/principal"
         android:layout_width="match_parent"
@@ -24,9 +16,9 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="@string/mail"
+            app:title="Registro"
             app:menu="@menu/principal_register"
-            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            style="@style/Widget.MaterialComponents.Toolbar.PrimarySurface"
             />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -155,12 +147,6 @@
 
     </ScrollView>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/menu_bajo"
-        tools:ignore="InvalidId" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

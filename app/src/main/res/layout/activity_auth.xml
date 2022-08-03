@@ -98,9 +98,9 @@
                 style="@style/btn"
                 android:layout_height="40dp"
                 android:layout_marginTop="@dimen/input_padding"
+                android:background="@drawable/button_shape"
                 android:contentDescription="@string/login_btn"
                 android:text="@string/login_btn"
-                android:background="@drawable/button_shape"
                 android:textAllCaps="false"
                 app:layout_constraintStart_toStartOf="@id/forgot_msg"
                 app:layout_constraintTop_toBottomOf="@+id/forgot_msg" />
@@ -109,6 +109,7 @@
             <TextView
                 android:id="@+id/or_msg"
                 style="@style/read_msg"
+                android:layout_marginTop="15dp"
                 android:clickable="true"
                 android:gravity="left"
                 android:text="@string/login_whit"
@@ -119,6 +120,7 @@
                 android:id="@+id/social_opt"
                 style="@style/click_msg"
                 android:layout_marginStart="110dp"
+                android:layout_marginTop="15dp"
                 android:clickable="true"
                 android:gravity="left"
                 android:text="@string/social_media"
@@ -129,7 +131,6 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

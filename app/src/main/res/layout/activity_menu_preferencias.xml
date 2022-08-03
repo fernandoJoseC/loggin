@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".menu_preferencias">
+    android:layout_gravity="center"
+    tools:context=".menuPreferencias">
+
 
     <ImageView
         android:id="@+id/logo_uide"
@@ -21,33 +23,128 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="Menu de preferencias"
+        android:textColor="@color/red_uide"
         android:textSize="30dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/logo_uide"
         tools:ignore="MissingConstraints" />
 
-    <Button
-        android:id="@+id/boton1"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:background="@drawable/button_shape"
-        android:text="Boton 1"
-        android:textAllCaps="false"
+        app:dividerColor="@color/yellow_uide"
         app:layout_constraintLeft_toLeftOf="@id/menu_preferencias"
         app:layout_constraintRight_toRightOf="@id/menu_preferencias"
         app:layout_constraintTop_toBottomOf="@id/menu_preferencias" />
 
-    <Button
+    <TextView
+        android:id="@+id/idioma"
         android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/button_shape"
-        android:text="Boton 2"
-        android:textAllCaps="false"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:drawableStart="@drawable/languaje"
+        android:drawableEnd="@drawable/flecha"
+        android:text="Idioma"
+        android:textColor="@color/black"
+        android:textSize="20dp"
         app:layout_constraintLeft_toLeftOf="@id/menu_preferencias"
         app:layout_constraintRight_toRightOf="@id/menu_preferencias"
-        app:layout_constraintTop_toBottomOf="@id/boton1" />
+        app:layout_constraintTop_toBottomOf="@id/menu_preferencias" />
+
+    <TextView
+        android:id="@+id/modo_oscuro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:drawableStart="@drawable/ic_baseline_dark_mode_24"
+        android:text="Modo oscuro"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintLeft_toLeftOf="@id/menu_preferencias"
+        app:layout_constraintTop_toBottomOf="@id/idioma" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginLeft="100dp"
+        android:checked="false"
+        app:layout_constraintLeft_toRightOf="@id/modo_oscuro"
+        app:layout_constraintTop_toBottomOf="@id/idioma"
+        app:thumbTint="@color/red_uide"
+        app:trackTint="#87576A"
+        app:useMaterialThemeColors="false" />
+
+    <TextView
+        android:id="@+id/notificaciones"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:drawableStart="@drawable/ic_baseline_notifications_24"
+        android:drawableEnd="@drawable/flecha"
+        android:text="Notificaciones"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintLeft_toLeftOf="@id/menu_preferencias"
+        app:layout_constraintRight_toRightOf="@id/menu_preferencias"
+        app:layout_constraintTop_toBottomOf="@id/modo_oscuro" />
+
+    <TextView
+        android:id="@+id/privacidad"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:drawableStart="@drawable/ic_baseline_lock_24"
+        android:drawableEnd="@drawable/flecha"
+        android:text="Privacidad"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintLeft_toLeftOf="@id/menu_preferencias"
+        app:layout_constraintRight_toRightOf="@id/menu_preferencias"
+        app:layout_constraintTop_toBottomOf="@id/notificaciones" />
+
+    <TextView
+        android:id="@+id/seguridad"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:drawableStart="@drawable/ic_baseline_privacy_tip_24"
+        android:drawableEnd="@drawable/flecha"
+        android:text="Seguridad"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintLeft_toLeftOf="@id/menu_preferencias"
+        app:layout_constraintRight_toRightOf="@id/menu_preferencias"
+        app:layout_constraintTop_toBottomOf="@id/privacidad" />
+
+    <TextView
+        android:id="@+id/ayuda"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:drawableStart="@drawable/ic_baseline_help_24"
+        android:drawableEnd="@drawable/flecha"
+        android:text="Ayuda"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintLeft_toLeftOf="@id/menu_preferencias"
+        app:layout_constraintRight_toRightOf="@id/menu_preferencias"
+        app:layout_constraintTop_toBottomOf="@id/seguridad" />
+
+    <TextView
+        android:id="@+id/informacion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:drawableStart="@drawable/ic_baseline_info_24"
+        android:drawableEnd="@drawable/flecha"
+        android:text="Informacion"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintLeft_toLeftOf="@id/menu_preferencias"
+        app:layout_constraintRight_toRightOf="@id/menu_preferencias"
+        app:layout_constraintTop_toBottomOf="@id/ayuda" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

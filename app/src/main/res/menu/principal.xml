@@ -12,13 +12,6 @@
         app:showAsAction="always" />
 
     <item
-        android:id="@+id/ajustes"
-        android:icon="@drawable/ic_baseline_settings_24"
-        android:iconTint="@color/white"
-        android:title="Ajustes"
-        app:showAsAction="ifRoom" />
-
-    <item
         android:id="@+id/preferencias"
         android:title="Preferencias" />
 

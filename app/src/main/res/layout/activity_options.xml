@@ -31,7 +31,7 @@
                 android:layout_marginTop="@dimen/margin_top_logo2"
                 android:gravity="center"
                 android:text="@string/options"
-                android:textColor="@color/black"
+                android:textColor="@color/red_uide"
                 android:textSize="@dimen/text_size_msg"
                 app:layout_constraintTop_toBottomOf="@id/uide_logo"
                 app:layout_constraintLeft_toLeftOf="@id/uide_logo"
@@ -45,6 +45,7 @@
                 android:textAllCaps="false"
                 app:icon="@drawable/google_icon"
                 app:iconGravity="textStart"
+                android:backgroundTint="@color/yellow_uide"
                 app:layout_constraintLeft_toLeftOf="@id/options_text"
                 app:layout_constraintRight_toRightOf="@id/options_text"
                 app:layout_constraintTop_toBottomOf="@id/options_text" />
@@ -56,6 +57,7 @@
                 android:textAllCaps="false"
                 app:icon="@drawable/facebook"
                 app:iconGravity="textStart"
+                android:backgroundTint="@color/yellow_uide"
                 app:layout_constraintLeft_toLeftOf="@id/google_btn"
                 app:layout_constraintRight_toRightOf="@id/google_btn"
                 app:layout_constraintTop_toBottomOf="@id/google_btn" />
