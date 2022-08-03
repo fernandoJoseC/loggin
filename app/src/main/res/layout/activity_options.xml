@@ -32,34 +32,42 @@
                 android:text="@string/options"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_size_msg"
-                app:layout_constraintTop_toBottomOf="@id/uide_logo"
-                app:layout_constraintStart_toEndOf="@id/uide_logo"/>
+                app:layout_constraintStart_toEndOf="@id/uide_logo"
+                app:layout_constraintTop_toBottomOf="@id/uide_logo" />
+
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/google_btn"
                 style="@style/btn"
-                android:text="Google"
+                android:text="@string/google"
                 android:textAllCaps="false"
                 app:icon="@drawable/google_icon"
-                android:background="@drawable/button_shape"
-                android:layout_height="40dp"
                 app:iconGravity="textStart"
                 app:layout_constraintLeft_toLeftOf="@id/options_text"
                 app:layout_constraintRight_toRightOf="@id/options_text"
                 app:layout_constraintTop_toBottomOf="@id/options_text" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/fb_btn"
+                android:id="@+id/microsoft_btn"
                 style="@style/btn"
-                android:text="Facebook"
+                android:text="@string/microsoft"
                 android:textAllCaps="false"
-                app:icon="@drawable/facebook"
+                app:icon="@drawable/microsoft"
                 app:iconGravity="textStart"
                 app:layout_constraintLeft_toLeftOf="@id/google_btn"
                 app:layout_constraintRight_toRightOf="@id/google_btn"
                 app:layout_constraintTop_toBottomOf="@id/google_btn" />
 
-
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/apple_btn"
+                style="@style/btn"
+                android:text="@string/apple"
+                android:textAllCaps="false"
+                app:icon="@drawable/apple"
+                app:iconGravity="textStart"
+                app:layout_constraintLeft_toLeftOf="@id/microsoft_btn"
+                app:layout_constraintRight_toRightOf="@id/microsoft_btn"
+                app:layout_constraintTop_toBottomOf="@id/microsoft_btn" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

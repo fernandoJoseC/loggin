@@ -56,6 +56,7 @@ class SocialOptions : AppCompatActivity() {
         })
 
     }*/
+
     private fun accionesMenuArriba(){
         views.topAppBar.setOnMenuItemClickListener {
             itemArriba ->
