@@ -47,7 +47,7 @@ class MailOptions : AppCompatActivity() {
 
     }
 
-    /*override fun onCreateOptionsMenu(menu: Menu): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.principal, menu)
         enableFinder(menu.findItem(R.id.buscar))
         return true
@@ -80,7 +80,7 @@ class MailOptions : AppCompatActivity() {
                             if (response.isSuccessful) {
                                 response.body()?.let { list -> fillFragments(list) }
                             } else {
-                                views.listadoOpciones.adapter = null
+                                views.fragmento.adapter = null
                             }
                         }
 
@@ -90,16 +90,16 @@ class MailOptions : AppCompatActivity() {
 
                     })
             } else {
-                views.listadoOpciones.adapter = null
+                views.fragmento.adapter = null
             }
 
         }
     }
 
     private fun fillFragments(list: List<Mail>) {
-        views.listadoOpciones.layoutManager = LinearLayoutManager(this)
-        views.listadoOpciones.adapter = AdapterMail(list)
-    }*/
+        views.fragmento.layoutManager = LinearLayoutManager(this)
+        views.fragmento.adapter = AdapterMail(list)
+    }
 }
 
 
