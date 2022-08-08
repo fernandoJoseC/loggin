@@ -66,10 +66,11 @@
         app:layout_constraintTop_toBottomOf="@id/idioma" />
 
     <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/modo_oscuro_switch"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginLeft="100dp"
-        android:checked="false"
+        android:checked="true"
         app:layout_constraintLeft_toRightOf="@id/modo_oscuro"
         app:layout_constraintTop_toBottomOf="@id/idioma"
         app:thumbTint="@color/red_uide"
