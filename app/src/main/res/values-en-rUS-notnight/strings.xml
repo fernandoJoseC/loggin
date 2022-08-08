@@ -12,6 +12,7 @@
     <string name="welcome_msg">Welcome</string>
     <string name="already_msg">Already exist ?</string>
     <string name="options">Options</string>
+    <string name="preferences">Preferences</string>
 
 
     <!-- FLIEDS -->
@@ -53,7 +54,8 @@
 
 
     <string name="user">User</string>
-
+    <string name="find">Find</string>
+    <string name="settings">Settings</string>
     <string name="dashboard">Dashboard</string>
 
     <!-- PREFERENCES -->

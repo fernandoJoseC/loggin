@@ -126,7 +126,7 @@
             <TextView
                 android:id="@+id/or_msg"
                 style="@style/read_msg"
-                android:layout_marginEnd="65dp"
+                android:layout_marginEnd="@dimen/margin_end_register"
                 android:clickable="true"
                 android:gravity="right"
                 android:text="@string/already_msg"

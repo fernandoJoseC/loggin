@@ -2,11 +2,11 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="270dp"
-    android:layout_height="@dimen/farment_height"
+    android:layout_width="@dimen/layout_width"
+    android:layout_height="@dimen/fragment_h"
     android:background="@drawable/button_shape"
-    android:layout_marginTop="20dp"
-    android:layout_marginStart="70dp"
+    android:layout_marginTop="@dimen/margin_top_frag"
+    android:layout_marginStart="@dimen/margin_start_frag"
     tools:context=".SiginOptions"
     >
 
@@ -18,15 +18,14 @@
 
         <ImageView
             android:id="@+id/image_social"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="@dimen/margin_top_text_frag"
+            android:layout_height="@dimen/margin_top_text_frag"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints"
-            android:layout_margin="5dp"/>
+            android:layout_margin="@dimen/margin_top_click_txt"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="0dp"
+            android:layout_width="@dimen/zero"
             android:layout_height="match_parent"
             app:layout_constraintLeft_toRightOf="@id/image_social"
             app:layout_constraintRight_toRightOf="parent">

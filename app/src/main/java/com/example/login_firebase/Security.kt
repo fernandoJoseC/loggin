@@ -3,9 +3,9 @@ package com.example.login_firebase
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class notificaciones : AppCompatActivity() {
+class Security : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_notificaciones)
+        setContentView(R.layout.activity_seguridad)
     }
 }
