@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.View
 import android.widget.Toast
-import com.example.login_firebase.databinding.ActivityCodeOptionsBinding
 import com.example.login_firebase.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -35,7 +34,7 @@ class Register : AppCompatActivity() {
             itemArriba ->
             when (itemArriba.itemId){
                 R.id.preferencias_auth -> {
-                    val intent = Intent(this@Register, menuPreferencias::class.java)
+                    val intent = Intent(this@Register, MenuPreferences::class.java)
                     startActivity(intent)
                     finish()
                     true

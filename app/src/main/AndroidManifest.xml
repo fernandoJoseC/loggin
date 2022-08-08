@@ -17,25 +17,22 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".informacion"
+            android:name=".Information"
             android:exported="false" />
         <activity
-            android:name=".ayuda"
+            android:name=".Help"
             android:exported="false" />
         <activity
-            android:name=".seguridad"
+            android:name=".Security"
             android:exported="false" />
         <activity
-            android:name=".privacidad"
+            android:name=".Privacy"
             android:exported="false" />
         <activity
-            android:name=".notificaciones"
+            android:name=".Notifications"
             android:exported="false" />
         <activity
-            android:name=".Idioma"
-            android:exported="false" />
-        <activity
-            android:name=".menuPreferencias"
+            android:name=".MenuPreferences"
             android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
@@ -57,16 +54,6 @@
         <meta-data
             android:name="com.facebook.sdk.ClientToken"
             android:value="@string/facebook_client_token" />
-
-        <activity
-            android:name=".inicio"
-            android:exported="false" />
-        <activity
-            android:name=".MailOptions"
-            android:exported="false" />
-        <activity
-            android:name=".SocialOptions"
-            android:exported="false" />
         <activity
             android:name=".CodeOptions"
             android:exported="false" />

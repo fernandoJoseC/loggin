@@ -17,20 +17,20 @@ interface ApiService {
     @GET("api/code")
     fun findcode(): Call<List<Code>>
 
-    @Headers("Content-Type: application/json")
-    @POST(value = "mail/buscar")
+    @Headers("Content-Type: application/x-www-form-urlencoded")
+    @POST(value = "api/social")
     fun findMail(
         @Body datasend: Send,
     ): Call<List<Mail>>
 
-    @Headers("Content-Type: application/json")
-    @POST(value = "code/buscar")
+    @Headers("Content-Type: application/x-www-form-urlencoded")
+    @POST(value = "api/code")
     fun findCode(
         @Body datasend: Send,
     ): Call<List<Code>>
 
-    @Headers("Content-Type: application/json")
-    @POST(value = "social/buscar")
+    @Headers("Content-Type: application/x-www-form-urlencoded")
+    @POST(value = "api/social")
     fun findSocial(
         @Body datasend: Send,
     ): Call<List<Social>>
