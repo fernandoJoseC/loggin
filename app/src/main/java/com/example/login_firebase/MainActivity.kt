@@ -3,13 +3,20 @@ package com.example.login_firebase
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.example.login_firebase.databinding.ActivityMainBinding
 import com.google.android.material.internal.NavigationMenu
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 enum class ProviderType {
     BASIC,
@@ -25,6 +32,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         views = ActivityMainBinding.inflate(layoutInflater)
         setContentView(views.root)
+        /*lifecycleScope.launch(Dispatchers.IO){
+            getUserProfile().collect{
+                withContext(Dispatchers.Main){
+                    it.name = views.name.toString()
+                    it.email = views.email.toString()
+                }
+            }
+        }*/
+
 
         val email = intent.getStringExtra("email")
         val name = intent.getStringExtra("full_name")
@@ -37,17 +53,18 @@ class MainActivity : AppCompatActivity() {
         nName.text = name
         nEmail.text = email
 
-        Glide.with(this).load(url).centerCrop().into(mProfileImage);
-        //aqui va picasso
 
+        //aqui va picasso
+        Glide.with(this).load(url).centerCrop().into(mProfileImage);
         //guardado de datos
         val prefs =
             getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
         prefs.putString("email", email)
         prefs.apply()
 
+
         views.logoutBtn.setOnClickListener {
-            val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
+            val prefs = getSharedPreferences(email.toString(), Context.MODE_PRIVATE).edit()
             prefs.clear()
             prefs.apply()
             prefs.commit()
@@ -60,8 +77,16 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    private fun getUserProfile() = dataStore.data.map { preferences ->
+        UserProfile(
+            token = preferences[stringPreferencesKey("token")].orEmpty(),
+            name = preferences[stringPreferencesKey("name")].orEmpty(),
+            email = preferences[stringPreferencesKey("email")].orEmpty(),
+            photo = preferences[stringPreferencesKey("photo")].orEmpty()
 
+        )
 
+    }
 
 
 }
