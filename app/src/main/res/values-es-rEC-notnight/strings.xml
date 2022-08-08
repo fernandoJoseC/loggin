@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LogIn_Firebase</string>
+
+    <!-- MSG -->
+    <string name="msg_login">Ingresar</string>
+    <string name="register">Registrarse</string>
+    <string name="new_user">¿Eres un nuevo usuario?</string>
+    <string name="login_whit">Ingresa con</string>
+    <string name="signup_whit">Registrate con</string>
+    <string name="social_media">Redes Sociales</string>
+    <string name="welcome_msg">Bienvenido</string>
+    <string name="already_msg">¿Ya te encuentras registrado?</string>
+    <string name="options">Opciones</string>
+
+
+    <!-- FLIEDS -->
+    <string name="name">Nombre</string>
+    <string name="email">E-mail</string>
+    <string name="password">Contraseña</string>
+    <string name="confirm_password">Confirma la contraseña</string>
+    <string name="text_options">Redes Sociales / Correo</string>
+
+
+    <!-- FOOTER MENU-->
+    <string name="code">Codigo</string>
+    <string name="social">Social</string>
+    <string name="mail">E-mail</string>
+
+    <!-- BTNS -->
+    <string name="login_btn">Ingresar</string>
+    <string name="logout_btn">Salir</string>
+    <string name="register_btn">Registrar</string>
+    <string name="google">Google</string>
+    <string name="fb">Facebook</string>
+    <string name="microsoft">Microsoft</string>
+    <string name="apple">Apple</string>
+    <string name="git">GitHub</string>
+    <string name="twitter">Twitter</string>
+
+    <!-- FB -->
+    <string name="facebook_app_id">2285932508223087</string>
+    <string name="fb_login_protocol_scheme">fb2285932508223087</string>
+    <string name="facebook_client_token">3f2da8faf02af691beb9c30812322594</string>
+
+    <!-- GOOGLE -->
+    <string name="prefs_file">Preferencias</string>
+    <string name="default_web_id_token">165602814967-smk14bfoodpjt9ifo94kie1lgupd0qcm.apps.googleusercontent.com</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="user">Usuario</string>
+
+    <string name="dashboard">Tablero</string>
+
+    <!-- PREFERENCES -->
+    <string name="preferences_tittle">PREFERENCIAS</string>
+    <string name="language">Idioma</string>
+    <string name="darkmode">Modo Obscuro</string>
+    <string name="notifications">Notificaciones</string>
+    <string name="privacy">Privacidad</string>
+    <string name="security">Seguridad</string>
+    <string name="help">Ayuda</string>
+    <string name="information">Información</string>
+</resources>

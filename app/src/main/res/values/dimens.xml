@@ -5,6 +5,7 @@
 
     <dimen name="margin_top_logo">200dp</dimen>
     <dimen name="margin_top_logo2">40dp</dimen>
+    <dimen name="line">360dp</dimen>
 
 
     <!-- INPUTS -->
@@ -29,7 +30,6 @@
     <dimen name="text_size_data">16dp</dimen>
     <dimen name="margin_top_data">5dp</dimen>
 
-
     <!-- BTN -->
 
     <dimen name="size_for_btn">20dp</dimen>
@@ -44,6 +44,10 @@
     <dimen name="margin_frag">10dp</dimen>
     <dimen name="farment_height">50dp</dimen>
     <dimen name="text_margin">16dp</dimen>
+
+    <!-- PREFERENCES -->
+    <dimen name="margin_switcher">100dp</dimen>
+    <dimen name="text_size_pref">10dp</dimen>
 
 
 </resources>
