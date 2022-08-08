@@ -10,26 +10,22 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
-import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.appcompat.widget.SearchView
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import androidx.core.content.ContextCompat
-import com.example.login_firebase.databinding.ActivityCodeOptionsBinding
-import com.example.login_firebase.databinding.ActivityMailOptionsBinding
+import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.stringPreferencesKey
+import androidx.datastore.preferences.preferencesDataStore
+import androidx.lifecycle.lifecycleScope
 import com.example.login_firebase.databinding.ActivityOptionsBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.GoogleAuthCredential
-import com.google.firebase.auth.GoogleAuthProvider
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
+val Context.dataStore by preferencesDataStore(name = "USER_PREFERENCES")
 
 class Options : AppCompatActivity() {
 
@@ -51,6 +47,7 @@ class Options : AppCompatActivity() {
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
         views.googleBtn.setOnClickListener {
+
             signIn()
         }
         crearCanal()
@@ -93,7 +90,23 @@ class Options : AppCompatActivity() {
                     putExtra("full_name", account.displayName)
                     putExtra("email", account.email)
                     putExtra("photoUrl", account.photoUrl.toString())
+                    /*lifecycleScope.launch(Dispatchers.IO) {
+                        account.idToken?.let { token ->
+                            account.displayName?.let { name ->
+                                account.email?.let { email ->
+                                    account.photoUrl.toString()?.let { photo ->
+                                        saveValues(token, name, email, photo)
+
+                                    }
+
+                                }
+
+                            }
+                        }
+
+                    }*/
                 }
+
 
                 val image_google = BitmapFactory.decodeResource(
                     resources,
@@ -142,6 +155,17 @@ class Options : AppCompatActivity() {
             }
         }
     }
+
+    /*private suspend fun saveValues(token: String, name: String, email: String, photo: String) {
+        dataStore.edit { preferences ->
+            preferences[stringPreferencesKey("token")] = token
+            preferences[stringPreferencesKey("name")] = name
+            preferences[stringPreferencesKey("email")] = email
+            preferences[stringPreferencesKey("photo")] = photo
+
+        }
+
+    }*/
 
     // [START signin]
     private fun signIn() {

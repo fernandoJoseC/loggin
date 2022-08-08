@@ -9,7 +9,6 @@ import android.view.View
 import android.widget.Toast
 import com.example.login_firebase.databinding.ActivityCodeOptionsBinding
 import com.example.login_firebase.databinding.ActivityRegisterBinding
-import com.example.login_firebase.databinding.ActivitySocialOptionsBinding
 import com.google.firebase.auth.FirebaseAuth
 
 class Register : AppCompatActivity() {
