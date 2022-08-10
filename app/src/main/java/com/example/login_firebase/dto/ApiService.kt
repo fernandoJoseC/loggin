@@ -18,9 +18,9 @@ interface ApiService {
     fun findcode(): Call<List<Code>>
 
     @Headers("Content-Type: application/x-www-form-urlencoded")
-    @POST(value = "api/social")
-    fun findMail(
-        @Body datasend: Send,
+    @POST(value = "api/todo")
+    fun search(
+        @Body nombre: String?= null,
     ): Call<List<Mail>>
 
     @Headers("Content-Type: application/x-www-form-urlencoded")

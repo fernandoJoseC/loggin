@@ -4,7 +4,15 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import com.example.login_firebase.databinding.ActivityCodeOptionsBinding
+import com.example.login_firebase.dto.Mail
+import com.example.login_firebase.dto.WsClient
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class CodeOptions : AppCompatActivity() {
 
@@ -26,25 +34,39 @@ class CodeOptions : AppCompatActivity() {
         return super.onCreateOptionsMenu(menu)
     }
 
-//    private fun enableFinder(item: MenuItem) {
-//        val finder = item.actionView as androidx.appcompat.widget.SearchView
-//        finder.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
-//            override fun onQueryTextSubmit(query: String?): Boolean {
-//                searching(query.toString().trim())
-//                return false
-//            }
-//
-//            override fun onQueryTextChange(newText: String?): Boolean {
-//                searching(newText.toString().trim())
-//                return false
-//            }
-//        })
-//    }
+    private fun enableFinder(item: MenuItem) {
+        val finder = item.actionView as SearchView
+        finder.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                TODO("Not yet implemented"
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                TODO("Not yet implemented")
+            }
+        })
+    }
+
+    private fun search(text: String) {
+        text?.let {
+            WsClient.apiSocial()?.search(text)?.enqueue(object : Callback<List<Mail>>{
+                override fun onResponse(call: Call<List<Mail>>, response: Response<List<Mail>>) {
+                    TODO("Not yet implemented")
+                }
+
+                override fun onFailure(call: Call<List<Mail>>, t: Throwable) {
+                    TODO("Not yet implemented")
+                }
+            })
+        }
+    }
+
+
 
 //    private fun searching(text: String) {
 //        text?.let { realText ->
 //            if (realText.length >= 3) {
-//                WsClient.apiSocial()?.findMail(Send.Builder().name(realText).build())
+//                WsClient.apiSocial()?.search()
 //                    ?.enqueue(object : Callback<List<Mail>> {
 //                        override fun onResponse(
 //                            call: Call<List<Mail>>,
@@ -58,7 +80,7 @@ class CodeOptions : AppCompatActivity() {
 //                        }
 //
 //                        override fun onFailure(call: Call<List<Mail>>, t: Throwable) {
-//                            Toast.makeText(this@MailOptions, "Error, No data found", Toast.LENGTH_SHORT).show()
+//                            Toast.makeText(this@CodeOptions, "Error, No data found", Toast.LENGTH_SHORT).show()
 //                        }
 //
 //                    })
@@ -113,3 +135,5 @@ class CodeOptions : AppCompatActivity() {
 
 
 }
+
+
