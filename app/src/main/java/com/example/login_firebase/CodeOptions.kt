@@ -47,20 +47,6 @@ class CodeOptions : AppCompatActivity() {
         })
     }
 
-    private fun search(text: String) {
-        text?.let {
-            WsClient.apiSocial()?.search(text)?.enqueue(object : Callback<List<Mail>>{
-                override fun onResponse(call: Call<List<Mail>>, response: Response<List<Mail>>) {
-                    TODO("Not yet implemented")
-                }
-
-                override fun onFailure(call: Call<List<Mail>>, t: Throwable) {
-                    TODO("Not yet implemented")
-                }
-            })
-        }
-    }
-
 
 
 //    private fun searching(text: String) {
