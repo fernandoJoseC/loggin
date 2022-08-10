@@ -5,11 +5,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.login_firebase.databinding.FragmentSiginOptionsBinding
-import com.example.login_firebase.dto.Code
 import com.example.login_firebase.dto.Social
 import com.squareup.picasso.Picasso
 
-class AdapterCode(val list: List<Code>) : RecyclerView.Adapter<AdapterCode.CodeHolder>() {
+class AdapterCode(val list: List<Social>) : RecyclerView.Adapter<AdapterCode.CodeHolder>() {
     inner class CodeHolder(fragmentoView: View) : RecyclerView.ViewHolder(fragmentoView) {
         var viewsFragmentHolder: FragmentSiginOptionsBinding
 

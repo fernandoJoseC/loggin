@@ -5,15 +5,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import androidx.recyclerview.widget.LinearLayoutManager
+import android.widget.Toast
 import com.example.login_firebase.databinding.ActivityCodeOptionsBinding
-import com.example.login_firebase.dto.Code
-import com.example.login_firebase.dto.Send
 import com.example.login_firebase.dto.WsClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import androidx.appcompat.widget.SearchView
+import com.example.login_firebase.dto.Send
+import com.example.login_firebase.dto.Social
 
 class CodeOptions : AppCompatActivity() {
 
@@ -97,35 +97,36 @@ class CodeOptions : AppCompatActivity() {
 
     private fun searching(text: String) {
         text?.let { realText ->
-            if (realText.length >= 3) {
-                WsClient.apiSocial()?.findCode(Send.Builder().name(realText).build())
-                    ?.enqueue(object : Callback<List<Code>> {
+            if (realText.length >= 1) {
+                var enviar: Send = Send()
+                enviar.nombre = realText
+                WsClient.apiSocial()?.findCode(enviar)
+                    ?.enqueue(object : Callback<List<Social>> {
                         override fun onResponse(
-                            call: Call<List<Code>>,
-                            response: Response<List<Code>>
+                            call: Call<List<Social>>, response: Response<List<Social>>
                         ) {
                             if (response.isSuccessful) {
                                 response.body()?.let { list ->
                                     fillFragments(list)
                                 }
                             } else {
-                                views.fragmento.adapter = null
+
                             }
                         }
 
-                        override fun onFailure(call: Call<List<Code>>, t: Throwable) {
-                            TODO("Not yet implemented")
+                        override fun onFailure(call: Call<List<Social>>, t: Throwable) {
+                            Toast.makeText(this@CodeOptions, t.message, Toast.LENGTH_SHORT).show()
                         }
                     })
             } else {
-                views.fragmento.adapter = null
+
             }
         }
     }
 
-    private fun fillFragments(list: List<Code>) {
-        views.fragmento.layoutManager = LinearLayoutManager(this)
-        views.fragmento.adapter = AdapterCode(list)
+    private fun fillFragments(list: List<Social>) {
+        supportFragmentManager.beginTransaction().replace(views.fragmento.id, busqueda(list))
+            .commit()
     }
 
 

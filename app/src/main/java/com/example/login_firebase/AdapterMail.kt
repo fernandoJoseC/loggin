@@ -4,14 +4,13 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.app.ActivityCompat.startActivityForResult
 import androidx.recyclerview.widget.RecyclerView
 import com.example.login_firebase.databinding.FragmentSiginOptionsBinding
-import com.example.login_firebase.dto.Mail
+import com.example.login_firebase.dto.Social
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.squareup.picasso.Picasso
 
-class AdapterMail(val list: List<Mail>) : RecyclerView.Adapter<AdapterMail.MailHolder>() {
+class AdapterMail(val list: List<Social>) : RecyclerView.Adapter<AdapterMail.MailHolder>() {
 
     private lateinit var googleSignInClient: GoogleSignInClient
 

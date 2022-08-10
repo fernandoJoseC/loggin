@@ -2,36 +2,22 @@ package com.example.login_firebase.dto
 
 
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.Headers
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface ApiService {
+
     @GET("api/social")
     fun findsocial(): Call<List<Social>>
 
     @GET("api/mail")
-    fun findmail(): Call<List<Mail>>
+    fun findmail(): Call<List<Social>>
 
     @GET("api/code")
-    fun findcode(): Call<List<Code>>
+    fun findcode(): Call<List<Social>>
 
-    @Headers("Content-Type: application/x-www-form-urlencoded")
-    @POST(value = "api/todo")
-    fun search(
-        @Body nombre: String?= null,
-    ): Call<List<Mail>>
 
-    @Headers("Content-Type: application/x-www-form-urlencoded")
-    @POST(value = "api/code")
+    @POST("api/todo")
     fun findCode(
-        @Body datasend: Send,
-    ): Call<List<Code>>
-
-    @Headers("Content-Type: application/x-www-form-urlencoded")
-    @POST(value = "api/social")
-    fun findSocial(
-        @Body datasend: Send,
+        @Body envio: Send
     ): Call<List<Social>>
 }

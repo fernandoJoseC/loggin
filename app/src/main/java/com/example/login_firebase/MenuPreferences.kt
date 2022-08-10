@@ -24,10 +24,6 @@ class MenuPreferences : AppCompatActivity() {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
             }
         }
-        views.idioma.setOnClickListener {
-            val intent = Intent(this@MenuPreferences, Idioma::class.java)
-            startActivity(intent)
-        }
         views.notificaciones.setOnClickListener {
             val intent = Intent(this@MenuPreferences, Notifications::class.java)
             startActivity(intent)
