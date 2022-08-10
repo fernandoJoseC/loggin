@@ -32,7 +32,7 @@ class AdapterMail(val list: List<Mail>) : RecyclerView.Adapter<AdapterMail.MailH
 
     override fun onBindViewHolder(holder: MailHolder, position: Int) {
         holder.viewsFragmentHolder.socialText.text = list[position].nombre
-        Picasso.get().load(list[position].url).fit().centerInside().into(holder.viewsFragmentHolder.imageSocial)
+        Picasso.get().load(list[position].url).placeholder(R.mipmap.load).fit().centerInside().into(holder.viewsFragmentHolder.imageSocial)
         holder.viewsFragmentHolder.buttonFragment.setOnClickListener {
 
             if (holder.viewsFragmentHolder.socialText.text == "Google"){

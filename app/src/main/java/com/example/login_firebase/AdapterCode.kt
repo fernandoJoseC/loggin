@@ -27,7 +27,7 @@ class AdapterCode(val list: List<Code>) : RecyclerView.Adapter<AdapterCode.CodeH
 
     override fun onBindViewHolder(holder: CodeHolder, position: Int) {
         holder.viewsFragmentHolder.socialText.text = list[position].nombre
-        Picasso.get().load(list[position].url).fit().centerInside().into(holder.viewsFragmentHolder.imageSocial)
+        Picasso.get().load(list[position].url).placeholder(R.mipmap.load).fit().centerInside().into(holder.viewsFragmentHolder.imageSocial)
     }
 
     override fun getItemCount(): Int {
