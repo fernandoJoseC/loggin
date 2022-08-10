@@ -1,6 +1,5 @@
 package com.example.login_firebase
 
-import android.app.UiModeManager.MODE_NIGHT_YES
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,7 +7,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
 import com.example.login_firebase.databinding.ActivityMenuPreferenciasBinding
 
-class menuPreferencias : AppCompatActivity() {
+class MenuPreferences : AppCompatActivity() {
     private lateinit var views: ActivityMenuPreferenciasBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,27 +25,27 @@ class menuPreferencias : AppCompatActivity() {
             }
         }
         views.idioma.setOnClickListener {
-            val intent = Intent(this@menuPreferencias, Idioma::class.java)
+            val intent = Intent(this@MenuPreferences, Idioma::class.java)
             startActivity(intent)
         }
         views.notificaciones.setOnClickListener {
-            val intent = Intent(this@menuPreferencias, notificaciones::class.java)
+            val intent = Intent(this@MenuPreferences, Notifications::class.java)
             startActivity(intent)
         }
         views.privacidad.setOnClickListener {
-            val intent = Intent(this@menuPreferencias, privacidad::class.java)
+            val intent = Intent(this@MenuPreferences, Privacy::class.java)
             startActivity(intent)
         }
         views.seguridad.setOnClickListener {
-            val intent = Intent(this@menuPreferencias, seguridad::class.java)
+            val intent = Intent(this@MenuPreferences, Security::class.java)
             startActivity(intent)
         }
         views.ayuda.setOnClickListener {
-            val intent = Intent(this@menuPreferencias, ayuda::class.java)
+            val intent = Intent(this@MenuPreferences, Help::class.java)
             startActivity(intent)
         }
         views.informacion.setOnClickListener {
-            val intent = Intent(this@menuPreferencias, informacion::class.java)
+            val intent = Intent(this@MenuPreferences, Information::class.java)
             startActivity(intent)
         }
     }

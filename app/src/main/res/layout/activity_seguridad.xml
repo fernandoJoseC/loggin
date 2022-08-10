@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".seguridad">
+    tools:context=".Security">
 
     <ImageView
         android:id="@+id/logo_uide"
         style="@style/margins"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="@dimen/margin_top_logo2"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
 
@@ -19,20 +19,19 @@
         android:id="@+id/menu_preferencias"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Seguridad"
+        android:layout_marginTop="@dimen/margin_top"
+        android:text="@string/security"
         android:textColor="@color/red_uide"
-        android:textSize="30dp"
+        android:textSize="@dimen/text_size2"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logo_uide"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@id/logo_uide"/>
 
     <com.google.android.material.divider.MaterialDivider
         android:id="@+id/divider"
-        android:layout_width="350dp"
+        android:layout_width="@dimen/line"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="@dimen/margin_top"
         app:dividerColor="@color/yellow_uide"
         app:layout_constraintLeft_toLeftOf="@id/menu_preferencias"
         app:layout_constraintRight_toRightOf="@id/menu_preferencias"

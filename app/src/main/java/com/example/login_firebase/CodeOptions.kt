@@ -4,18 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
-import android.view.MenuItem
-import android.widget.SearchView
-import android.widget.Toast
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.login_firebase.databinding.ActivityCodeOptionsBinding
-import com.example.login_firebase.dto.Code
-import com.example.login_firebase.dto.Mail
-import com.example.login_firebase.dto.Send
-import com.example.login_firebase.dto.WsClient
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class CodeOptions : AppCompatActivity() {
 
@@ -85,7 +74,7 @@ class CodeOptions : AppCompatActivity() {
         views.toolbar.setOnMenuItemClickListener { itemArriba ->
             when (itemArriba.itemId) {
                 R.id.preferencias -> {
-                    val intent = Intent(this@CodeOptions, menuPreferencias::class.java)
+                    val intent = Intent(this@CodeOptions, MenuPreferences::class.java)
                     startActivity(intent)
                     finish()
                     true
