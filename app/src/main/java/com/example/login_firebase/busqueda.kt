@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.login_firebase.databinding.FragmentBusquedaBinding
 import com.example.login_firebase.dto.Social
-import com.example.login_firebase.dto.WsClient
 
 class busqueda(val lista: List<Social>) : Fragment() {
 
@@ -27,6 +26,7 @@ class busqueda(val lista: List<Social>) : Fragment() {
 
     private fun cargarListado(context: Context) {
         views.listaBusqueda.layoutManager = LinearLayoutManager(context)
-        views.listaBusqueda.adapter = AdapterCode(lista)
+        views.listaBusqueda.adapter = Adapter(lista)
+
     }
 }

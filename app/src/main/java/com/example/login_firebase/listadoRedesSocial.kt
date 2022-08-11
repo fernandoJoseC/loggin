@@ -36,7 +36,7 @@ class listadoRedesSocial : Fragment() {
                     response.body()?.let {
                             listaRedes ->
                         views.listaRedesSocial.layoutManager = LinearLayoutManager(context)
-                        views.listaRedesSocial.adapter = AdapterMail(listaRedes)
+                        views.listaRedesSocial.adapter = Adapter(listaRedes)
                     }
                 }
             }

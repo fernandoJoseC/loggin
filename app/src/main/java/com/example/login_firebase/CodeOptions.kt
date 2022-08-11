@@ -127,6 +127,7 @@ class CodeOptions : AppCompatActivity() {
     private fun fillFragments(list: List<Social>) {
         supportFragmentManager.beginTransaction().replace(views.fragmento.id, busqueda(list))
             .commit()
+
     }
 
 
