@@ -1,17 +1,18 @@
 package com.example.login_firebase
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.app.ActivityCompat.startActivityForResult
 import androidx.recyclerview.widget.RecyclerView
 import com.example.login_firebase.databinding.FragmentSiginOptionsBinding
-import com.example.login_firebase.dto.Mail
+import com.example.login_firebase.dto.Social
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.squareup.picasso.Picasso
+import androidx.core.app.ActivityCompat.startActivityForResult as startActivityForResult
 
-class AdapterMail(val list: List<Mail>) : RecyclerView.Adapter<AdapterMail.MailHolder>() {
+class Adapter(val list: List<Social>) : RecyclerView.Adapter<Adapter.MailHolder>() {
 
     private lateinit var googleSignInClient: GoogleSignInClient
 
@@ -32,15 +33,21 @@ class AdapterMail(val list: List<Mail>) : RecyclerView.Adapter<AdapterMail.MailH
 
     override fun onBindViewHolder(holder: MailHolder, position: Int) {
         holder.viewsFragmentHolder.socialText.text = list[position].nombre
-        Picasso.get().load(list[position].url).placeholder(R.mipmap.load).fit().centerInside().into(holder.viewsFragmentHolder.imageSocial)
+        Picasso.get().load(list[position].url).placeholder(R.mipmap.load).fit().centerInside()
+            .into(holder.viewsFragmentHolder.imageSocial)
         holder.viewsFragmentHolder.buttonFragment.setOnClickListener {
 
-            if (holder.viewsFragmentHolder.socialText.text == "Google"){
+            if (holder.viewsFragmentHolder.socialText.text == "Google") {
                 val intent = Intent(holder.viewsFragmentHolder.root.context, Options::class.java)
                 holder.viewsFragmentHolder.root.context.startActivity(intent)
-            } else {}
+//                ConexionGoogle()
+            } else {
+            }
+
         }
     }
+
+
 
     override fun getItemCount(): Int {
         return list.size

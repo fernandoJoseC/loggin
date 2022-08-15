@@ -30,13 +30,13 @@ class listadoRedesSocial : Fragment() {
     }
 
     private fun cargarListado(context: Context) {
-        WsClient.apiSocial()?.findsocial()?.enqueue(object: Callback<List<Social>>{
+        WsClient.apiSocial()?.findsocial()?.enqueue(object : Callback<List<Social>>{
             override fun onResponse(call: Call<List<Social>>, response: Response<List<Social>>) {
                 if (response.isSuccessful){
                     response.body()?.let {
                             listaRedes ->
                         views.listaRedesSocial.layoutManager = LinearLayoutManager(context)
-                        views.listaRedesSocial.adapter = AdapterSocial(listaRedes)
+                        views.listaRedesSocial.adapter = Adapter(listaRedes)
                     }
                 }
             }
@@ -45,6 +45,5 @@ class listadoRedesSocial : Fragment() {
                 Toast.makeText(context, t.message, Toast.LENGTH_SHORT).show()
             }
         })
-
     }
 }

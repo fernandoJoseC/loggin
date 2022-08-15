@@ -7,34 +7,26 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import androidx.datastore.preferences.preferencesDataStore
-import com.example.login_firebase.databinding.ActivityOptionsBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 
-val Context.dataStore by preferencesDataStore(name = "USER_PREFERENCES")
+class ConexionGoogle : AppCompatActivity() {
 
-class Options : AppCompatActivity() {
-
-    private lateinit var views: ActivityOptionsBinding
 
     private lateinit var googleSignInClient: GoogleSignInClient
 
     @RequiresApi(Build.VERSION_CODES.O)
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        views = ActivityOptionsBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
-        setContentView(views.root)
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_id_token))
             .requestEmail()
@@ -42,27 +34,13 @@ class Options : AppCompatActivity() {
 
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
-        views.googleBtn.setOnClickListener {
-            signIn()
-        }
-        crearCanal()
-
-    }
-
-    override fun onStart() {
-        super.onStart()
-        views.authLayout.visibility = View.VISIBLE
-    }
-
-
-    // [START signin]
-    private fun signIn() {
         val signInIntent = googleSignInClient.signInIntent
         startActivityForResult(signInIntent, 9001)
+        crearCanal()
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     @SuppressLint("WrongConstant")
+    @RequiresApi(Build.VERSION_CODES.O)
     fun crearCanal() {
         val name = getString(R.string.app_name)
         val channelId = getString(R.string.user)
@@ -77,33 +55,23 @@ class Options : AppCompatActivity() {
         nm.createNotificationChannel(channel)
     }
 
-    // [START onactivityresult]
-
-    @SuppressLint("CommitPrefEdits")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-
-        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == 9001) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-            try {
+            val any = try {
                 // Google Sign In was successful, authenticate with Firebase
                 val account = task.getResult(ApiException::class.java)!!
-
+                Log.d(
+                    "succes",
+                    "datos:" + account.displayName + " " + account.email + " " + account.photoUrl + " " + account.idToken
+                )
                 val intent = Intent(this, MainActivity::class.java).apply {
                     putExtra("full_name", account.displayName)
                     putExtra("email", account.email)
                     putExtra("photoUrl", account.photoUrl.toString())
                 }
 
-                //GUARDADO DE DATOS
-                val prefs = getSharedPreferences(
-                    getString(R.string.prefs_file),
-                    Context.MODE_PRIVATE
-                ).edit()
-                prefs.putString("email", account.displayName)
-                prefs.putString("idToken", account.idToken)
-                prefs.apply()
 
                 val image_google = BitmapFactory.decodeResource(
                     resources,
@@ -146,23 +114,10 @@ class Options : AppCompatActivity() {
                     notify(2, notification2)
                 }
                 this.startActivity(intent)
-
             } catch (e: ApiException) {
                 // Google Sign In failed, update UI appropriately
                 Log.w("error", "Google sign in failed", e)
             }
         }
-
     }
 }
-
-
-
-
-
-
-
-
-
-
-

@@ -17,6 +17,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Finder"
+            android:exported="false" />
+        <activity
             android:name=".Information"
             android:exported="false" />
         <activity
@@ -54,6 +57,7 @@
         <meta-data
             android:name="com.facebook.sdk.ClientToken"
             android:value="@string/facebook_client_token" />
+
         <activity
             android:name=".CodeOptions"
             android:exported="false" />

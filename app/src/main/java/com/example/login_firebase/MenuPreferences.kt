@@ -14,6 +14,12 @@ class MenuPreferences : AppCompatActivity() {
         views = ActivityMenuPreferenciasBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(views.root)
+        inicializationListener()
+
+
+    }
+
+    private fun inicializationListener() {
 
         views.modoOscuroSwitch.isChecked = true
 
@@ -23,10 +29,6 @@ class MenuPreferences : AppCompatActivity() {
             }else {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
             }
-        }
-        views.idioma.setOnClickListener {
-            val intent = Intent(this@MenuPreferences, Idioma::class.java)
-            startActivity(intent)
         }
         views.notificaciones.setOnClickListener {
             val intent = Intent(this@MenuPreferences, Notifications::class.java)
@@ -48,6 +50,7 @@ class MenuPreferences : AppCompatActivity() {
             val intent = Intent(this@MenuPreferences, Information::class.java)
             startActivity(intent)
         }
+
     }
 
 

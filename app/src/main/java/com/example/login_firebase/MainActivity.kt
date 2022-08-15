@@ -32,15 +32,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         views = ActivityMainBinding.inflate(layoutInflater)
         setContentView(views.root)
-        /*lifecycleScope.launch(Dispatchers.IO){
-            getUserProfile().collect{
-                withContext(Dispatchers.Main){
-                    it.name = views.name.toString()
-                    it.email = views.email.toString()
-                }
-            }
-        }*/
-
 
         val email = intent.getStringExtra("email")
         val name = intent.getStringExtra("full_name")
@@ -56,35 +47,19 @@ class MainActivity : AppCompatActivity() {
 
         //aqui va picasso
         Glide.with(this).load(url).centerCrop().into(mProfileImage);
-        //guardado de datos
-        val prefs =
-            getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
-        prefs.putString("email", email)
-        prefs.apply()
+
 
 
         views.logoutBtn.setOnClickListener {
-            val prefs = getSharedPreferences(email.toString(), Context.MODE_PRIVATE).edit()
+            val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
             prefs.clear()
             prefs.apply()
-            prefs.commit()
-
+            //prefs.commit()
             Firebase.auth.signOut()
             onBackPressed()
         }
 
 
-
-    }
-
-    private fun getUserProfile() = dataStore.data.map { preferences ->
-        UserProfile(
-            token = preferences[stringPreferencesKey("token")].orEmpty(),
-            name = preferences[stringPreferencesKey("name")].orEmpty(),
-            email = preferences[stringPreferencesKey("email")].orEmpty(),
-            photo = preferences[stringPreferencesKey("photo")].orEmpty()
-
-        )
 
     }
 
