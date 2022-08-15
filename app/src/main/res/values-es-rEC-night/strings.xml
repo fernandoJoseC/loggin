@@ -13,6 +13,8 @@
     <string name="already_msg">¿Ya te encuentras registrado?</string>
     <string name="options">Opciones</string>
     <string name="preferences">Preferencias</string>
+    <string name="app_vs">Versión de la App: 1.0</string>
+    <string name="devs">Desarrollada por: Javier A. and Fernando C.</string>
 
 
     <!-- FLIEDS -->

@@ -4,7 +4,6 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../../layout/custom_preview.xml" value="0.14994934143870314" />
-        <entry key="../../../../layout/custom_preview.xml" value="0.14418465227817745" />
         <entry key="app/src/main/res/drawable-v24/button_shape_waiting.xml" value="0.1855" />
         <entry key="app/src/main/res/drawable-v24/dashboard.xml" value="0.1855" />
         <entry key="app/src/main/res/drawable-v24/home.xml" value="0.1425" />
@@ -40,7 +39,7 @@
         <entry key="app/src/main/res/layout/activity_seguridad.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/activity_social_options.xml" value="0.21081034342447919" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.28229166666666666" />
-        <entry key="app/src/main/res/layout/fragment_busqueda.xml" value="0.2971014492753623" />
+        <entry key="app/src/main/res/layout/fragment_busqueda.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_listado_redes_code.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_listado_redes_mail.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_listado_redes_social.xml" value="0.28229166666666666" />
