@@ -28,6 +28,7 @@ class CodeOptions : AppCompatActivity() {
             .commit()
         accionesMenuBajo()
         accionesMenuArriba()
+
     }
 
     private fun accionesMenuArriba() {

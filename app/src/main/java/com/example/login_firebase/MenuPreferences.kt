@@ -14,6 +14,12 @@ class MenuPreferences : AppCompatActivity() {
         views = ActivityMenuPreferenciasBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(views.root)
+        inicializationListener()
+
+
+    }
+
+    private fun inicializationListener() {
 
         views.modoOscuroSwitch.isChecked = true
 
@@ -44,6 +50,7 @@ class MenuPreferences : AppCompatActivity() {
             val intent = Intent(this@MenuPreferences, Information::class.java)
             startActivity(intent)
         }
+
     }
 
 
