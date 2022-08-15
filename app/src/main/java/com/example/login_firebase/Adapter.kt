@@ -48,7 +48,6 @@ class Adapter(val list: List<Social>) : RecyclerView.Adapter<Adapter.MailHolder>
     }
 
 
-
     override fun getItemCount(): Int {
         return list.size
     }
