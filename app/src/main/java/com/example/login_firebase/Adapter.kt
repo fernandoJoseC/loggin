@@ -41,8 +41,11 @@ class Adapter(val list: List<Social>) : RecyclerView.Adapter<Adapter.MailHolder>
                 val intent = Intent(holder.viewsFragmentHolder.root.context, Options::class.java)
                 holder.viewsFragmentHolder.root.context.startActivity(intent)
 //                ConexionGoogle()
-            } else {
+            } else if (holder.viewsFragmentHolder.socialText.text == "Facebook"){
+                val intent = Intent(holder.viewsFragmentHolder.root.context, Options::class.java)
+                holder.viewsFragmentHolder.root.context.startActivity(intent)
             }
+
 
         }
     }

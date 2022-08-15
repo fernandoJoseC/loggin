@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../../layout/custom_preview.xml" value="0.14994934143870314" />
+        <entry key="../../../../layout/custom_preview.xml" value="0.14418465227817745" />
         <entry key="app/src/main/res/drawable-v24/button_shape_waiting.xml" value="0.1855" />
         <entry key="app/src/main/res/drawable-v24/dashboard.xml" value="0.1855" />
         <entry key="app/src/main/res/drawable-v24/home.xml" value="0.1425" />
@@ -33,13 +34,13 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2913599650065104" />
         <entry key="app/src/main/res/layout/activity_menu_preferencias.xml" value="0.2707116389620131" />
         <entry key="app/src/main/res/layout/activity_notificaciones.xml" value="0.28229166666666666" />
-        <entry key="app/src/main/res/layout/activity_options.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_options.xml" value="0.22027435302734366" />
         <entry key="app/src/main/res/layout/activity_privacidad.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/activity_seguridad.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/activity_social_options.xml" value="0.21081034342447919" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.28229166666666666" />
-        <entry key="app/src/main/res/layout/fragment_busqueda.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/fragment_busqueda.xml" value="0.2971014492753623" />
         <entry key="app/src/main/res/layout/fragment_listado_redes_code.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_listado_redes_mail.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_listado_redes_social.xml" value="0.28229166666666666" />
