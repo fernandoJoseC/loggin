@@ -25,8 +25,6 @@ class AuthActivity : AppCompatActivity() {
         setContentView(views.root)
         setup()
         session()
-
-
     }
 
 
