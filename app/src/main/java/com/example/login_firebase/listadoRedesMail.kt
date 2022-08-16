@@ -36,7 +36,7 @@ class listadoRedesMail : Fragment() {
                     response.body()?.let {
                             listaRedes ->
                         views.listaRedesMail.layoutManager = LinearLayoutManager(context)
-                        views.listaRedesMail.adapter = Adapter(listaRedes)
+                        views.listaRedesMail.adapter = Adapter(listaRedes, requireActivity())
                     }
                 }
             }

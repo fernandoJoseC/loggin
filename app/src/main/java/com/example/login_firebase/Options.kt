@@ -150,6 +150,7 @@ class Options : AppCompatActivity() {
                 prefs.putString("email", account.displayName)
                 prefs.putString("idToken", account.idToken)
                 prefs.apply()
+                finishAffinity()
 
                 val image_google = BitmapFactory.decodeResource(
                     resources,
