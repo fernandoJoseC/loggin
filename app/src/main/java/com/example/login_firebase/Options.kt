@@ -11,15 +11,23 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.datastore.preferences.preferencesDataStore
 import com.example.login_firebase.databinding.ActivityOptionsBinding
+import com.facebook.CallbackManager
+import com.facebook.FacebookCallback
+import com.facebook.FacebookException
+import com.facebook.login.LoginManager
+import com.facebook.login.LoginResult
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.google.firebase.auth.FacebookAuthProvider
+import com.google.firebase.auth.FirebaseAuth
 
 val Context.dataStore by preferencesDataStore(name = "USER_PREFERENCES")
 
@@ -28,6 +36,7 @@ class Options : AppCompatActivity() {
     private lateinit var views: ActivityOptionsBinding
 
     private lateinit var googleSignInClient: GoogleSignInClient
+    private val callbackManager = CallbackManager.Factory.create()
 
     @RequiresApi(Build.VERSION_CODES.O)
 
@@ -45,9 +54,44 @@ class Options : AppCompatActivity() {
         views.googleBtn.setOnClickListener {
             signIn()
         }
+
+        views.fbBtn.setOnClickListener {
+            LoginManager.getInstance()
+                .registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
+                    override fun onCancel() {
+                        TODO("Not yet implemented")
+                    }
+
+                    override fun onError(error: FacebookException) {
+                        Toast.makeText(this@Options, error.message, Toast.LENGTH_SHORT).show()
+                    }
+
+                    override fun onSuccess(result: LoginResult) {
+                        result?.let { it ->
+                            val token = it.accessToken
+                            val credential = FacebookAuthProvider.getCredential(token.token)
+
+                            FirebaseAuth.getInstance().signInWithCredential(credential)
+                                .addOnCompleteListener { facebook ->
+                                    if (facebook.isSuccessful) {
+                                        Log.d("nombre", facebook.result?.user?.displayName.toString())
+                                        Log.d("email", facebook?.result?.user?.email.toString())
+                                        Log.d("url", facebook?.result?.user?.photoUrl.toString())
+                                        //startActivity(intent)
+                                    } else {
+                                    }
+
+                                }
+                        }
+                    }
+
+                })
+        }
+
         crearCanal()
 
     }
+
 
     override fun onStart() {
         super.onStart()
@@ -60,6 +104,7 @@ class Options : AppCompatActivity() {
         val signInIntent = googleSignInClient.signInIntent
         startActivityForResult(signInIntent, 9001)
     }
+
 
     @RequiresApi(Build.VERSION_CODES.O)
     @SuppressLint("WrongConstant")
@@ -77,10 +122,11 @@ class Options : AppCompatActivity() {
         nm.createNotificationChannel(channel)
     }
 
-    // [START onactivityresult]
+    // [START onactivityresult] GOOGLE
 
     @SuppressLint("CommitPrefEdits")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        callbackManager.onActivityResult(requestCode, resultCode, data)
         super.onActivityResult(requestCode, resultCode, data)
 
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
@@ -104,6 +150,7 @@ class Options : AppCompatActivity() {
                 prefs.putString("email", account.displayName)
                 prefs.putString("idToken", account.idToken)
                 prefs.apply()
+                finishAffinity()
 
                 val image_google = BitmapFactory.decodeResource(
                     resources,

@@ -36,7 +36,7 @@ class listadoRedesCode : Fragment() {
 
                         listaRedes ->
                         views.listaRedesCode.layoutManager = LinearLayoutManager(context)
-                        views.listaRedesCode.adapter = Adapter(listaRedes)
+                        views.listaRedesCode.adapter = Adapter(listaRedes, requireActivity())
                     }
                 }
 

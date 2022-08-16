@@ -1,5 +1,6 @@
 package com.example.login_firebase
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -108,7 +109,7 @@ class CodeOptions : AppCompatActivity() {
                         ) {
                             if (response.isSuccessful) {
                                 response.body()?.let { list ->
-                                    fillFragments(list)
+                                    fillFragments(list, this@CodeOptions)
                                 }
                             } else {
 
@@ -125,8 +126,8 @@ class CodeOptions : AppCompatActivity() {
         }
     }
 
-    private fun fillFragments(list: List<Social>) {
-        supportFragmentManager.beginTransaction().replace(views.fragmento.id, busqueda(list))
+    private fun fillFragments(list: List<Social>, activity: Activity) {
+        supportFragmentManager.beginTransaction().replace(views.fragmento.id, busqueda(list, activity))
             .commit()
 
     }

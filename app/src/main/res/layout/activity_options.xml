@@ -34,9 +34,9 @@
                 android:text="@string/options"
                 android:textColor="@color/red_uide"
                 android:textSize="@dimen/text_size_msg"
-                app:layout_constraintTop_toBottomOf="@id/uide_logo"
+                app:layout_constraintBottom_toTopOf="@id/google_btn"
                 app:layout_constraintLeft_toLeftOf="@id/uide_logo"
-                app:layout_constraintBottom_toTopOf="@id/google_btn"/>
+                app:layout_constraintTop_toBottomOf="@id/uide_logo" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/google_btn"
@@ -72,6 +72,11 @@
                 app:layout_constraintRight_toRightOf="@id/microsoft_btn"
                 app:layout_constraintTop_toBottomOf="@id/microsoft_btn" />
 
+            <com.facebook.login.widget.LoginButton
+                android:id="@+id/fb_btn"
+                style="@style/btn"
+                app:layout_constraintRight_toRightOf="@id/apple_btn"
+                app:layout_constraintTop_toBottomOf="@id/apple_btn"/>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

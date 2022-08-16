@@ -12,6 +12,8 @@
     <string name="already_msg">Already exist ?</string>
     <string name="options">Options</string>
     <string name="preferences">Preferences</string>
+    <string name="app_vs">App Version: 1.0</string>
+    <string name="devs">Develop by: Javier A. and Fernando C.</string>
 
 
     <!-- FLIEDS -->
