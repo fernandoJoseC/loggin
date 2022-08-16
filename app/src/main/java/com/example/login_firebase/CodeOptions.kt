@@ -31,6 +31,7 @@ class CodeOptions : AppCompatActivity() {
 
     }
 
+    // MENU ARRRIBA
     private fun accionesMenuArriba() {
         views.toolbar.setOnMenuItemClickListener { itemArriba ->
             when (itemArriba.itemId) {
@@ -45,6 +46,8 @@ class CodeOptions : AppCompatActivity() {
         }
 
     }
+
+    //MENU BAJO
 
     private fun accionesMenuBajo() {
         views.navigation.setOnItemSelectedListener { itemBajo ->
@@ -72,14 +75,14 @@ class CodeOptions : AppCompatActivity() {
         }
     }
 
-    // BUSCADOR
-
-
+    //CREAMOS EL MENU
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.principal, menu)
         enableFinder(menu.findItem(R.id.buscar))
         return true
     }
+
+    //CREAMOS LAS FUNCIONES PARA EL BUSCADOR
 
     private fun enableFinder(item: MenuItem) {
         val finder = item.actionView as SearchView
@@ -99,33 +102,26 @@ class CodeOptions : AppCompatActivity() {
     private fun searching(text: String) {
         text?.let { realText ->
             if (realText.length >= 1) {
-                var enviar: Send = Send()
-                enviar.nombre = realText
-                WsClient.apiSocial()?.findCode(enviar)
-                    ?.enqueue(object : Callback<List<Social>> {
-                        override fun onResponse(
-                            call: Call<List<Social>>, response: Response<List<Social>>
-                        ) {
-                            if (response.isSuccessful) {
-                                response.body()?.let { list ->
-                                    fillFragments(list)
-                                }
-                            } else {
+                val list = listOf(
+                    OpcionesSignIn("Github", "https://cdn-icons-png.flaticon.com/512/733/733553.png"),
+                    OpcionesSignIn("Google", "https://cdn-icons-png.flaticon.com/512/2702/2702602.png"),
+                    OpcionesSignIn("Apple", "https://cdn-icons-png.flaticon.com/512/270/270781.png"),
+                    OpcionesSignIn("Microsoft", "https://cdn-icons-png.flaticon.com/512/732/732221.png"),
+                    OpcionesSignIn("Facebook", "https://cdn-icons-png.flaticon.com/512/733/733547.png"),
+                    OpcionesSignIn("Twitter", "https://cdn-icons-png.flaticon.com/512/179/179342.png")
+                )
+                val filterList = list.filter { it.nombre == realText }
+                fillFragments(filterList)
 
-                            }
-                        }
-
-                        override fun onFailure(call: Call<List<Social>>, t: Throwable) {
-                            Toast.makeText(this@CodeOptions, t.message, Toast.LENGTH_SHORT).show()
-                        }
-                    })
             } else {
 
             }
         }
     }
 
-    private fun fillFragments(list: List<Social>) {
+    //LLENAMOS LOS FRAGMENTOS CON LA LISTA
+
+    private fun fillFragments(list: List<OpcionesSignIn>) {
         supportFragmentManager.beginTransaction().replace(views.fragmento.id, busqueda(list))
             .commit()
 

@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.login_firebase.databinding.FragmentBusquedaBinding
 import com.example.login_firebase.dto.Social
 
-class busqueda(val lista: List<Social>) : Fragment() {
+class busqueda(val lista: List<OpcionesSignIn>) : Fragment() {
 
     private lateinit var views: FragmentBusquedaBinding
 
