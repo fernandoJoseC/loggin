@@ -20,6 +20,7 @@ import com.example.login_firebase.databinding.ActivityOptionsBinding
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
 import com.facebook.FacebookException
+import com.facebook.GraphRequest
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -28,18 +29,18 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
+import org.json.JSONObject
+import kotlin.math.sign
 
 val Context.dataStore by preferencesDataStore(name = "USER_PREFERENCES")
 
 class Options : AppCompatActivity() {
 
     private lateinit var views: ActivityOptionsBinding
-
     private lateinit var googleSignInClient: GoogleSignInClient
-    private val callbackManager = CallbackManager.Factory.create()
+    private var callbackManager = CallbackManager.Factory.create()
 
     @RequiresApi(Build.VERSION_CODES.O)
-
     override fun onCreate(savedInstanceState: Bundle?) {
         views = ActivityOptionsBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
@@ -51,62 +52,116 @@ class Options : AppCompatActivity() {
 
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
+
         views.googleBtn.setOnClickListener {
             signIn()
         }
+        views.fbBtn.setOnClickListener{
 
-        views.fbBtn.setOnClickListener {
-            LoginManager.getInstance()
-                .registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
-                    override fun onCancel() {
-                        TODO("Not yet implemented")
-                    }
+            views.fbBtn.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
+                override fun onCancel() {
 
-                    override fun onError(error: FacebookException) {
-                        Toast.makeText(this@Options, error.message, Toast.LENGTH_SHORT).show()
-                    }
+                }
 
-                    override fun onSuccess(result: LoginResult) {
-                        result?.let { it ->
-                            val token = it.accessToken
-                            val credential = FacebookAuthProvider.getCredential(token.token)
+                override fun onError(error: FacebookException) {
 
-                            FirebaseAuth.getInstance().signInWithCredential(credential)
-                                .addOnCompleteListener { facebook ->
-                                    if (facebook.isSuccessful) {
-                                        println("entro")
-                                        Log.i(
-                                            "nombre",
-                                            facebook.result?.user?.displayName.toString()
-                                        )
-                                        Log.i("email", facebook?.result?.user?.email.toString())
-                                        Log.i("url", facebook?.result?.user?.photoUrl.toString())
-                                        //startActivity(intent)
-                                    } else {
-                                    }
+                }
 
-                                }
+                override fun onSuccess(result: LoginResult) {
+                    val graphRequest =
+                        GraphRequest.newMeRequest(result?.accessToken) { `object`, response ->
+                            getFacebookData(`object`)
                         }
-                    }
-
-                })
+                    val parameters = Bundle()
+                    parameters.putString("fields","email, full_name")
+                    graphRequest.parameters = parameters
+                    graphRequest.executeAsync()
+                }
+            })
         }
+
+        /*views.fbBtn.setOnClickListener {
+            signInFacebook()
+        }*/
 
         crearCanal()
 
     }
 
+    private fun getFacebookData(obj: JSONObject?) {
+        //val picture = "https://www.facebook.com/${obj?.getString("id")}/picture?width=200&height=200"
+        val name = obj?.getString("name")
+        val email = obj?.getString("email")
+
+        startActivity(Intent(this, MainActivity::class.java).apply {
+            putExtra("full_name", name)
+            putExtra("email", email)
+            //putExtra("photoUrl", picture)
+        })
+
+    }
+
+    // [START signin]
+
+    // Google
+    private fun signIn() {
+        val signInIntent = googleSignInClient.signInIntent
+        startActivityForResult(signInIntent, 9001)
+    }
+
+    // Facebook
+    /*private fun signInFacebook() {
+        LoginManager.getInstance()
+            .registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
+                override fun onCancel() {
+                    Toast.makeText(this@Options, "CANCEL", Toast.LENGTH_SHORT).show()
+                }
+
+                override fun onError(error: FacebookException) {
+                    Toast.makeText(this@Options, error.message, Toast.LENGTH_SHORT).show()
+                }
+
+                override fun onSuccess(result: LoginResult) {
+                    result?.let { it ->
+
+                        val token = it.accessToken
+                        val credential = FacebookAuthProvider.getCredential(token.token)
+
+                        FirebaseAuth.getInstance().signInWithCredential(credential)
+                            .addOnCompleteListener { facebook ->
+                                if (facebook.isSuccessful) {
+                                    val user = facebook.result.user?.displayName.toString()
+                                    val email = facebook.result.user?.email.toString()
+                                    val photo = facebook.result?.user?.photoUrl.toString()
+
+                                    startActivity(
+                                        Intent(
+                                            this@Options,
+                                            MainActivity::class.java
+                                        ).apply {
+                                            putExtra(
+                                                "full_name",
+                                                user
+                                            )
+                                            putExtra("email", email)
+                                            putExtra(
+                                                "photoUrl", photo
+                                            )
+                                        })
+                                } else {
+                                }
+
+                            }
+                    }
+                }
+
+            })
+    }*/
+
 
     override fun onStart() {
         super.onStart()
         views.authLayout.visibility = View.VISIBLE
-    }
-
-
-    // [START signin]
-    private fun signIn() {
-        val signInIntent = googleSignInClient.signInIntent
-        startActivityForResult(signInIntent, 9001)
     }
 
 
@@ -130,6 +185,7 @@ class Options : AppCompatActivity() {
 
     @SuppressLint("CommitPrefEdits")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+
         callbackManager.onActivityResult(requestCode, resultCode, data)
         super.onActivityResult(requestCode, resultCode, data)
 
