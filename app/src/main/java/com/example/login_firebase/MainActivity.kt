@@ -37,27 +37,17 @@ class MainActivity : AppCompatActivity() {
         val name = intent.getStringExtra("full_name")
         val url = intent.getStringExtra("photoUrl")
 
+        views.name.text = name
+        views.email.text = email
 
-        val nEmail = views.email
-        val nName = views.name
-        val mProfileImage = views.photo
-
-        nName.text = name
-        nEmail.text = email
-
-
-        //aqui va picasso
-        Glide.with(this).load(url).centerCrop().into(mProfileImage);
-
-
+        //aqui va Glide
+        Glide.with(this).load(url).centerCrop().into(views.photo);
 
         views.logoutBtn.setOnClickListener {
-            val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
+            /*val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
             prefs.clear()
             prefs.apply()
-            finishAffinity()
-
-            Firebase.auth.signOut()
+            Firebase.auth.signOut()*/
             onBackPressed()
         }
 
