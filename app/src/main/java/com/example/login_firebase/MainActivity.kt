@@ -1,6 +1,7 @@
 package com.example.login_firebase
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.datastore.preferences.core.stringPreferencesKey
@@ -49,6 +50,9 @@ class MainActivity : AppCompatActivity() {
             prefs.apply()
             Firebase.auth.signOut()*/
             onBackPressed()
+            val intent = Intent(this, AuthActivity::class.java)
+            startActivity(intent)
+            finishAffinity()
         }
 
 
