@@ -33,7 +33,7 @@ class listadoRedesCode : Fragment() {
         views.listaRedesCode.adapter = Adapter(
             listOf(
                 OpcionesSignIn("Github", "https://cdn-icons-png.flaticon.com/512/733/733553.png")
-            )
+            ), requireActivity()
         )
 
     }

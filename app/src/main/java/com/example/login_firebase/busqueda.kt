@@ -26,7 +26,7 @@ class busqueda(val lista: List<OpcionesSignIn>) : Fragment() {
 
     private fun cargarListado(context: Context) {
         views.listaBusqueda.layoutManager = LinearLayoutManager(context)
-        views.listaBusqueda.adapter = Adapter(lista)
+        views.listaBusqueda.adapter = Adapter(lista, requireActivity())
 
     }
 }

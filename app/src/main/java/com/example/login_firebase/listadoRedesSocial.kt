@@ -35,7 +35,7 @@ class listadoRedesSocial : Fragment() {
             listOf(
                 OpcionesSignIn("Facebook", "https://cdn-icons-png.flaticon.com/512/733/733547.png"),
                 OpcionesSignIn("Twitter", "https://cdn-icons-png.flaticon.com/512/179/179342.png")
-            )
+            ), requireActivity()
         )
 
     }

@@ -33,12 +33,13 @@ class MainActivity : AppCompatActivity() {
         views = ActivityMainBinding.inflate(layoutInflater)
         setContentView(views.root)
 
-        val email = intent.getStringExtra("email")
-        val name = intent.getStringExtra("full_name")
-        val url = intent.getStringExtra("photoUrl")
+        val email = getSharedPreferences(getString(R.string.prefs_file), MODE_PRIVATE).getString("email", " ninguna cosa")
+        /*val name = intent.getStringExtra("full_name")
+        val url = intent.getStringExtra("photoUrl")*/
 
-        val nName = views.name
-        val nEmail = views.email
+        views.name.text = email
+
+        /*val nEmail = views.email
         val mProfileImage = views.photo
 
         nName.text = name
@@ -58,7 +59,7 @@ class MainActivity : AppCompatActivity() {
 
             Firebase.auth.signOut()
             onBackPressed()
-        }
+        }*/
 
 
 

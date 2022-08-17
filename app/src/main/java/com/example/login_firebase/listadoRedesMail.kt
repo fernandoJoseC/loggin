@@ -36,7 +36,7 @@ class listadoRedesMail : Fragment() {
                 OpcionesSignIn("Google", "https://cdn-icons-png.flaticon.com/512/2702/2702602.png"),
                 OpcionesSignIn("Apple", "https://cdn-icons-png.flaticon.com/512/270/270781.png"),
                 OpcionesSignIn("Microsoft", "https://cdn-icons-png.flaticon.com/512/732/732221.png"),
-                )
+                ), requireActivity()
         )
 
     }

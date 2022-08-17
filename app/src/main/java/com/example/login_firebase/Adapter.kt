@@ -1,45 +1,115 @@
 package com.example.login_firebase
 
+import android.app.Activity
+import android.content.Context
 import android.content.Intent
+import android.graphics.BitmapFactory
+import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.app.ActivityCompat.finishAffinity
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
+import androidx.core.content.contentValuesOf
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.login_firebase.databinding.FragmentSiginOptionsBinding
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
 import com.squareup.picasso.Picasso
 
-class Adapter(val list: List<OpcionesSignIn>) : RecyclerView.Adapter<Adapter.ViewHolder>() {
+class Adapter(
+    val list: List<OpcionesSignIn>,
+    val fragmentActivity: FragmentActivity
+) :
+    RecyclerView.Adapter<Adapter.ViewHolder>() {
 
-    class ViewHolder(private val binding: FragmentSiginOptionsBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(red: OpcionesSignIn){
-            binding.socialText.text = red.nombre
-            Picasso.get().load(red.url).placeholder(R.mipmap.load).fit().centerInside().into(binding.imageSocial)
+
+    var googleSignInClient: GoogleSignInClient
+
+    init {
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(fragmentActivity.resources.getString(R.string.default_web_id_token))
+            .requestEmail()
+            .build()
+
+        googleSignInClient = GoogleSignIn.getClient(fragmentActivity, gso)
+    }
+
+
+
+    private val despuesLogearse =
+        fragmentActivity.registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
+                try {
+                    // Google Sign In was successful, authenticate with Firebase
+                    val account = task.getResult(ApiException::class.java)!!
+
+
+                    //GUARDADO DE DATOS
+                    fragmentActivity.getSharedPreferences(
+                        fragmentActivity.resources.getString(R.string.prefs_file),
+                        Context.MODE_PRIVATE
+                    ).edit().putString("email", account.displayName)
+                        .putString("idToken", account.idToken).apply()
+                    fragmentActivity.startActivity(
+                        Intent(
+                            fragmentActivity,
+                            MainActivity::class.java
+                        )
+                    )
+                    fragmentActivity.finishAffinity()
+
+                } catch (e: ApiException) {
+                    // Google Sign In failed, update UI appropriately
+                    Log.w("error", "Google sign in failed", e)
+                }
+            }
+        }
+
+
+    class ViewHolder(fragmentView: View) : RecyclerView.ViewHolder(fragmentView) {
+        val views: FragmentSiginOptionsBinding
+
+        init {
+            views = FragmentSiginOptionsBinding.bind(fragmentView)
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = FragmentSiginOptionsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(
-            binding
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.fragment_sigin_options, parent, false)
         )
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        /*holder.viewsFragmentHolder.socialText.text = list[position].nombre
+
+        holder.views.socialText.text = list[position].nombre
         Picasso.get().load(list[position].url).placeholder(R.mipmap.load).fit().centerInside()
-            .into(holder.viewsFragmentHolder.imageSocial)
-        holder.viewsFragmentHolder.buttonFragment.setOnClickListener {
+            .into(holder.views.imageSocial)
 
-            if (holder.viewsFragmentHolder.socialText.text == "Google") {
-                val intent = Intent(holder.viewsFragmentHolder.root.context, Options::class.java)
-                holder.viewsFragmentHolder.root.context.startActivity(intent)
-            } else if (holder.viewsFragmentHolder.socialText.text == "Facebook"){
-                val intent = Intent(holder.viewsFragmentHolder.root.context, Options::class.java)
-                holder.viewsFragmentHolder.root.context.startActivity(intent)
+        holder.views.buttonFragment.setOnClickListener {
+            when (holder.views.socialText.text) {
+                "Google" -> {
+
+                    despuesLogearse.launch(googleSignInClient.signInIntent)
+
+
+                }
+                "Facebook" -> {}
+                "Twitter" -> {}
+                "Github" -> {}
+                "Microsoft" -> {}
+                else -> {}
             }
+        }
 
-
-        }*/
-        holder.bind(list[position])
 
     }
 
