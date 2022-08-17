@@ -42,10 +42,6 @@ class MenuPreferences : AppCompatActivity() {
             val intent = Intent(this@MenuPreferences, Security::class.java)
             startActivity(intent)
         }
-        views.ayuda.setOnClickListener {
-            val intent = Intent(this@MenuPreferences, Help::class.java)
-            startActivity(intent)
-        }
         views.informacion.setOnClickListener {
             val intent = Intent(this@MenuPreferences, Information::class.java)
             startActivity(intent)

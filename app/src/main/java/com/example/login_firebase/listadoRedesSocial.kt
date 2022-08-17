@@ -29,21 +29,15 @@ class listadoRedesSocial : Fragment() {
         return views.root
     }
 
-    private fun cargarListado(context: Context) {
-        WsClient.apiSocial()?.findsocial()?.enqueue(object : Callback<List<Social>>{
-            override fun onResponse(call: Call<List<Social>>, response: Response<List<Social>>) {
-                if (response.isSuccessful){
-                    response.body()?.let {
-                            listaRedes ->
-                        views.listaRedesSocial.layoutManager = LinearLayoutManager(context)
-                        views.listaRedesSocial.adapter = Adapter(listaRedes, requireActivity())
-                    }
-                }
-            }
+    private fun cargarListado(context: Context?) {
+        views.listaRedesSocial.layoutManager = LinearLayoutManager(context)
+        views.listaRedesSocial.adapter = Adapter(
+            listOf(
+                OpcionesSignIn("Facebook", "https://cdn-icons-png.flaticon.com/512/733/733547.png"),
+                OpcionesSignIn("Twitter", "https://cdn-icons-png.flaticon.com/512/179/179342.png")
+            )
+        )
 
-            override fun onFailure(call: Call<List<Social>>, t: Throwable) {
-                Toast.makeText(context, t.message, Toast.LENGTH_SHORT).show()
-            }
-        })
     }
+
 }

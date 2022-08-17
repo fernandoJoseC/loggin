@@ -28,27 +28,13 @@ class listadoRedesCode : Fragment() {
 
     }
 
-    private fun cargarListado(context: Context) {
-        WsClient.apiSocial()?.findcode()?.enqueue(object: Callback<List<Social>>{
-            override fun onResponse(call: Call<List<Social>>, response: Response<List<Social>>) {
-                if (response.isSuccessful){
-                    response.body()?.let {
+    private fun cargarListado(context: Context?) {
+        views.listaRedesCode.layoutManager = LinearLayoutManager(context)
+        views.listaRedesCode.adapter = Adapter(
+            listOf(
+                OpcionesSignIn("Github", "https://cdn-icons-png.flaticon.com/512/733/733553.png")
+            )
+        )
 
-                        listaRedes ->
-                        views.listaRedesCode.layoutManager = LinearLayoutManager(context)
-                        views.listaRedesCode.adapter = Adapter(listaRedes, requireActivity())
-                    }
-                }
-
-            }
-
-            override fun onFailure(call: Call<List<Social>>, t: Throwable) {
-                Toast.makeText(context, t.message, Toast.LENGTH_SHORT).show()
-            }
-        })
     }
-
-
-
-
 }

@@ -55,7 +55,8 @@ class MainActivity : AppCompatActivity() {
             val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
             prefs.clear()
             prefs.apply()
-            //prefs.commit()
+            finishAffinity()
+
             Firebase.auth.signOut()
             onBackPressed()
             val intent = Intent(this, AuthActivity::class.java)

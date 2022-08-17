@@ -29,22 +29,16 @@ class listadoRedesMail : Fragment() {
         return views.root
     }
 
-    private fun cargarListado(context: Context) {
-        WsClient.apiSocial()?.findmail()?.enqueue(object : Callback<List<Social>>{
-            override fun onResponse(call: Call<List<Social>>, response: Response<List<Social>>) {
-                if (response.isSuccessful){
-                    response.body()?.let {
-                            listaRedes ->
-                        views.listaRedesMail.layoutManager = LinearLayoutManager(context)
-                        views.listaRedesMail.adapter = Adapter(listaRedes, requireActivity())
-                    }
-                }
-            }
-
-            override fun onFailure(call: Call<List<Social>>, t: Throwable) {
-                Toast.makeText(context, t.message, Toast.LENGTH_SHORT).show()
-            }
-        })
+    private fun cargarListado(context: Context?) {
+        views.listaRedesMail.layoutManager = LinearLayoutManager(context)
+        views.listaRedesMail.adapter = Adapter(
+            listOf(
+                OpcionesSignIn("Google", "https://cdn-icons-png.flaticon.com/512/2702/2702602.png"),
+                OpcionesSignIn("Apple", "https://cdn-icons-png.flaticon.com/512/270/270781.png"),
+                OpcionesSignIn("Microsoft", "https://cdn-icons-png.flaticon.com/512/732/732221.png"),
+                )
+        )
 
     }
+
 }
