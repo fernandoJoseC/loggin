@@ -38,8 +38,9 @@ class MainActivity : AppCompatActivity() {
         val name = intent.getStringExtra("full_name")
         val url = intent.getStringExtra("photoUrl")
 
-        val nName = views.name
+
         val nEmail = views.email
+        val nName = views.name
         val mProfileImage = views.photo
 
         nName.text = name
