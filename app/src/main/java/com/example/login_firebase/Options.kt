@@ -74,9 +74,13 @@ class Options : AppCompatActivity() {
                             FirebaseAuth.getInstance().signInWithCredential(credential)
                                 .addOnCompleteListener { facebook ->
                                     if (facebook.isSuccessful) {
-                                        Log.d("nombre", facebook.result?.user?.displayName.toString())
-                                        Log.d("email", facebook?.result?.user?.email.toString())
-                                        Log.d("url", facebook?.result?.user?.photoUrl.toString())
+                                        println("entro")
+                                        Log.i(
+                                            "nombre",
+                                            facebook.result?.user?.displayName.toString()
+                                        )
+                                        Log.i("email", facebook?.result?.user?.email.toString())
+                                        Log.i("url", facebook?.result?.user?.photoUrl.toString())
                                         //startActivity(intent)
                                     } else {
                                     }

@@ -1,6 +1,5 @@
 package com.example.login_firebase
 
-import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.login_firebase.databinding.FragmentBusquedaBinding
 import com.example.login_firebase.dto.Social
 
-class busqueda(val lista: List<Social>, val activity: Activity) : Fragment() {
+class busqueda(val lista: List<OpcionesSignIn>) : Fragment() {
 
     private lateinit var views: FragmentBusquedaBinding
 
@@ -27,7 +26,7 @@ class busqueda(val lista: List<Social>, val activity: Activity) : Fragment() {
 
     private fun cargarListado(context: Context) {
         views.listaBusqueda.layoutManager = LinearLayoutManager(context)
-        views.listaBusqueda.adapter = Adapter(lista, activity)
+        views.listaBusqueda.adapter = Adapter(lista, requireActivity())
 
     }
 }
