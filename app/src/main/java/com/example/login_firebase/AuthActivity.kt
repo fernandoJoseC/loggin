@@ -82,7 +82,7 @@ class AuthActivity : AppCompatActivity() {
 
     private fun showOptions() {
         //val intent: Intent = Intent(this, Options::class.java)
-        val intent: Intent = Intent(this, CodeOptions::class.java)
+        val intent: Intent = Intent(this, Options::class.java)
         startActivity(intent)
     }
 
