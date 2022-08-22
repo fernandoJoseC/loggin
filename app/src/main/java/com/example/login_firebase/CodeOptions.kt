@@ -24,10 +24,7 @@ class CodeOptions : AppCompatActivity() {
         views = ActivityCodeOptionsBinding.inflate(layoutInflater)
         setContentView(views.root)
         setSupportActionBar(views.toolbar)
-        supportFragmentManager.beginTransaction().replace(views.fragmento.id, listadoRedesCode())
-            .commit()
-        accionesMenuBajo()
-        accionesMenuArriba()
+
 
     }
 
@@ -49,31 +46,7 @@ class CodeOptions : AppCompatActivity() {
 
     //MENU BAJO
 
-    private fun accionesMenuBajo() {
-        views.navigation.setOnItemSelectedListener { itemBajo ->
-            when (itemBajo.itemId) {
-                R.id.code -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(views.fragmento.id, listadoRedesCode()).commit()
-                    views.toolbar.title = "Code"
-                    true
-                }
-                R.id.social -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(views.fragmento.id, listadoRedesSocial()).commit()
-                    views.toolbar.title = "Social"
-                    true
-                }
-                R.id.mail -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(views.fragmento.id, listadoRedesMail()).commit()
-                    views.toolbar.title = "Mail"
-                    true
-                }
-                else -> false
-            }
-        }
-    }
+
 
     //CREAMOS EL MENU
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

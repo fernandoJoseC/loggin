@@ -22,7 +22,6 @@
                 android:id="@+id/uide_logo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_top_logo2"
                 android:src="@drawable/logo"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,49 +44,54 @@
                 android:text="@string/google"
                 android:textAllCaps="false"
                 app:icon="@drawable/google_icon"
-                app:iconGravity="textStart"
+                app:iconGravity="start"
                 app:layout_constraintLeft_toLeftOf="@id/options_text"
                 app:layout_constraintRight_toRightOf="@id/options_text"
                 app:layout_constraintTop_toBottomOf="@id/options_text" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/microsoft_btn"
+                android:id="@+id/twitter_btn"
                 style="@style/btn"
-                android:text="@string/microsoft"
+                android:text="@string/twitter"
                 android:textAllCaps="false"
-                app:icon="@drawable/microsoft"
-                app:iconGravity="textStart"
+                app:icon="@drawable/twitter"
+                app:iconGravity="start"
                 app:layout_constraintLeft_toLeftOf="@id/google_btn"
                 app:layout_constraintRight_toRightOf="@id/google_btn"
                 app:layout_constraintTop_toBottomOf="@id/google_btn" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/apple_btn"
+                android:id="@+id/github_btn"
                 style="@style/btn"
-                android:text="@string/apple"
+                android:text="@string/git"
                 android:textAllCaps="false"
-                app:icon="@drawable/apple"
-                app:iconGravity="textStart"
-                app:layout_constraintLeft_toLeftOf="@id/microsoft_btn"
-                app:layout_constraintRight_toRightOf="@id/microsoft_btn"
-                app:layout_constraintTop_toBottomOf="@id/microsoft_btn" />
+                app:icon="@drawable/github"
+                app:iconGravity="start"
+                app:layout_constraintLeft_toLeftOf="@id/twitter_btn"
+                app:layout_constraintRight_toRightOf="@id/twitter_btn"
+                app:layout_constraintTop_toBottomOf="@id/twitter_btn" />
 
-            <com.facebook.login.widget.LoginButton
-                android:id="@+id/fb_btn"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/facebobk_btn"
                 style="@style/btn"
-                app:layout_constraintRight_toRightOf="@id/apple_btn"
-                app:layout_constraintTop_toBottomOf="@id/apple_btn"/>
+                android:text="@string/fb"
+                android:textAllCaps="false"
+                app:icon="@drawable/facebook"
+                app:iconGravity="start"
+                app:layout_constraintRight_toRightOf="@id/github_btn"
+                app:layout_constraintTop_toBottomOf="@id/github_btn" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/spotify_btn"
+                style="@style/btn"
+                android:text="Spotify"
+                android:textAllCaps="false"
+                app:layout_constraintRight_toRightOf="@id/github_btn"
+                app:layout_constraintTop_toBottomOf="@id/facebobk_btn" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
-
-    <!--<com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/menu_bajo" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

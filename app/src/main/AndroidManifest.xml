@@ -21,6 +21,33 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Spotify"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivitySpotify"
+            android:exported="false" />
+        <activity
+            android:name=".Twitter"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivityTwitter"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivityGithub"
+            android:exported="false" />
+        <activity
+            android:name=".Github"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivityFacebook"
+            android:exported="false" />
+        <activity
+            android:name=".Google"
+            android:exported="false" />
+        <activity
+            android:name=".Facebook"
+            android:exported="false" />
+        <activity
             android:name=".OptionsCode"
             android:exported="false" />
         <activity
